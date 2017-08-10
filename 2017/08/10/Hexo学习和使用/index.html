@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Soaic&#39;s Blog">
 <meta property="og:description" content="相关资料Hexo官网： https://hexo.io/ NexT官网： http://theme-next.iissnan.com/ Node下载： http://nodejs.cn/download/ 安装Hexo安装hexo，如果没有安装Node，需要先安装Node，否则npm命令会提示用不了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-10T15:13:01.000Z">
+<meta property="og:updated_time" content="2017-08-10T16:21:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo学习和使用">
 <meta name="twitter:description" content="相关资料Hexo官网： https://hexo.io/ NexT官网： http://theme-next.iissnan.com/ Node下载： http://nodejs.cn/download/ 安装Hexo安装hexo，如果没有安装Node，需要先安装Node，否则npm命令会提示用不了">
@@ -421,6 +421,23 @@
 <p>设置头像 </p>
 <p>可以放置完整互联网URI也可以放置站内主题<code>source/images/</code>目录下的图片</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: /images/avatar.png</div></pre></td></tr></table></figure>
+<h3 id="页面添加"><a href="#页面添加" class="headerlink" title="页面添加"></a>页面添加</h3><p>使用如下命令添加文章页面</p>
+<p><code>hexo new post 标题名</code></p>
+<p>使用如下命令添加「标签」页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">hexo new page tags</div></pre></td></tr></table></figure>
+<p>设置该页面为标签页</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: 标签</div><div class="line">date: 2014-12-22 12:39:04</div><div class="line">type: &quot;tags&quot;</div><div class="line">---</div></pre></td></tr></table></figure>
+<p>添加文章标签 下面例子将该文章添加为Test1和Test2两个标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">title: 标签测试文章</div><div class="line">tags:</div><div class="line">  - Test1</div><div class="line">  - Test2</div><div class="line">---</div></pre></td></tr></table></figure>
+<p>使用如下命令添加「分类」页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">hexo new page categories</div></pre></td></tr></table></figure>
+<p>设置该页面为分类页</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: 分类</div><div class="line">date: 2014-12-22 12:39:04</div><div class="line">type: &quot;categories&quot;</div><div class="line">---</div></pre></td></tr></table></figure>
+<p>设置文章为分类 下面例子将该文章设置为Testing分类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">title: 分类测试文章</div><div class="line">categories: Testing</div><div class="line">---</div></pre></td></tr></table></figure>
+<h3 id="添加阅读次数统计"><a href="#添加阅读次数统计" class="headerlink" title="添加阅读次数统计"></a>添加阅读次数统计</h3><p>利用LeanCloud第三方服务 并在NexT主题的_config.yml文件中修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">leancloud_visitors:</div><div class="line">  enable: true</div><div class="line">  app_id: joaeuuc4hsqudUUwx4gIvGF6-gzGzoHsz</div><div class="line">  app_key: E9UJsJpw1omCHuS22PdSpKoh</div></pre></td></tr></table></figure>
+<p>具体教程请查看 <a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a> </p>
 
       
     </div>
@@ -593,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关资料"><span class="nav-number">1.</span> <span class="nav-text">相关资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载设置NexT主题"><span class="nav-number">3.</span> <span class="nav-text">下载设置NexT主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题设定"><span class="nav-number">4.</span> <span class="nav-text">Next主题设定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关资料"><span class="nav-number">1.</span> <span class="nav-text">相关资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载设置NexT主题"><span class="nav-number">3.</span> <span class="nav-text">下载设置NexT主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题设定"><span class="nav-number">4.</span> <span class="nav-text">Next主题设定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面添加"><span class="nav-number">5.</span> <span class="nav-text">页面添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加阅读次数统计"><span class="nav-number">6.</span> <span class="nav-text">添加阅读次数统计</span></a></li></ol></div>
             
 
           </div>
