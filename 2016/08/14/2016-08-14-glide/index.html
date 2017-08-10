@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="到目前为止，网上有很多图片加载库，我就先来说说为什么选择Glide来学习。 Glide的特点 显示图片平缓流畅速度快 支持gif和webp格式图片 扩展性高可以转换各种图片效果 根据Activity/Fragment生命周期自动管理请求 …">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="glide图片加载库学习">
+<meta property="og:url" content="http://yoursite.com/2016/08/14/2016-08-14-glide/index.html">
+<meta property="og:site_name" content="Soaic&#39;s Notes">
+<meta property="og:description" content="到目前为止，网上有很多图片加载库，我就先来说说为什么选择Glide来学习。 Glide的特点 显示图片平缓流畅速度快 支持gif和webp格式图片 扩展性高可以转换各种图片效果 根据Activity/Fragment生命周期自动管理请求 …">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-10T09:29:04.024Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="glide图片加载库学习">
+<meta name="twitter:description" content="到目前为止，网上有很多图片加载库，我就先来说说为什么选择Glide来学习。 Glide的特点 显示图片平缓流畅速度快 支持gif和webp格式图片 扩展性高可以转换各种图片效果 根据Activity/Fragment生命周期自动管理请求 …">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/14/2016-08-14-glide/"/>
+
+
+
+
+
+  <title>glide图片加载库学习 | Soaic's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Soaic's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/2016-08-14-glide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Soaic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Soaic's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">glide图片加载库学习</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-14T22:40:00+08:00">
+                2016-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/08/14/2016-08-14-glide/" class="leancloud_visitors" data-flag-title="glide图片加载库学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>到目前为止，网上有很多图片加载库，我就先来说说为什么选择Glide来学习。</p>
+<h3 id="Glide的特点"><a href="#Glide的特点" class="headerlink" title="Glide的特点"></a>Glide的特点</h3><ol>
+<li>显示图片平缓流畅速度快</li>
+<li>支持gif和webp格式图片</li>
+<li>扩展性高可以转换各种图片效果</li>
+<li>根据Activity/Fragment生命周期自动管理请求</li>
+<li>…</li>
+</ol>
+<a id="more"></a>
+<p>其它图片加载库有的Glide都有，这里的特点是其它加载库没有的，还有很多特点这里就不一一列举，是不是觉得很心动，下面我们就来学习怎么使用Glide吧~</p>
+<p>github地址：<a href="https://github.com/bumptech/glide" target="_blank" rel="external">https://github.com/bumptech/glide</a></p>
+<p>这里主要是介绍在Andrid Studio上使用</p>
+<h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>在builde.gradle里面添加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;</div><div class="line">compile &apos;com.android.support:support-v4:19.1.0&apos;</div></pre></td></tr></table></figure>
+<p>要说明的是glide是要依赖于support liberary v4</p>
+<p>在AndroidManifest.xml添加所需权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;</div></pre></td></tr></table></figure>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ImageView imageView = (ImageView)findViewById(R.id.my_image_view);</div><div class="line">Glide.with(this).load(&quot;http://goo.gl/gEgYUd&quot;).into(imageView);</div></pre></td></tr></table></figure>
+<p>是不是特别简单一行代码就搞定</p>
+<h3 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h3><ol>
+<li>设置图片格式</li>
+<li>设置缓存目录(data或SD卡)</li>
+<li>设置内存和硬盘缓存大小</li>
+</ol>
+<p>创建MyGlideModule.java(名字可以随便取)实现GlideModule接口，实现里面两个方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">public class MyGlideModule implements GlideModule&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void applyOptions(Context context, GlideBuilder builder) &#123;</div><div class="line">        //设置格式</div><div class="line">        builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);</div><div class="line">        //缓存到data目录下最大50M</div><div class="line">        //缓存目录为程序内部缓存目录/data/data/your_package_name/image_manager_disk_cache/(不能被其它应用访问)且缓存最大为250MB</div><div class="line">        builder.setDiskCache(new InternalCacheDiskCacheFactory(context,DiskCache.Factory.DEFAULT_DISK_CACHE_DIR,DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE));</div><div class="line">        //缓存到外部磁盘SD卡上,字节</div><div class="line">        //builder.setDiskCache(new ExternalCacheDiskCacheFactory(context,DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE));</div><div class="line">		//设置内存缓存大小</div><div class="line">        MemorySizeCalculator calculator = new MemorySizeCalculator(context);</div><div class="line">        int defaultMemoryCacheSize = calculator.getMemoryCacheSize();</div><div class="line">        int defaultBitmapPoolSize = calculator.getBitmapPoolSize();</div><div class="line">        int customMemoryCacheSize = (int) (1.2 * defaultMemoryCacheSize);</div><div class="line">        int customBitmapPoolSize = (int) (1.2 * defaultBitmapPoolSize);</div><div class="line">        builder.setMemoryCache(new LruResourceCache(customMemoryCacheSize));</div><div class="line">        builder.setBitmapPool(new LruBitmapPool(customBitmapPoolSize));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void registerComponents(Context context, Glide glide) &#123;</div><div class="line">        //glide.register(ImageFid.class,InputStream.class, new ImageFidLoader.Factory());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在AndroidManifest.xml配置，需要把包名更换成大家项目中MyGlideModule的包名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;application</div><div class="line">        ...&gt;</div><div class="line">        &lt;meta-data</div><div class="line">            android:name=&quot;包名.MyGlideModule&quot;</div><div class="line">            android:value=&quot;GlideModule&quot; /&gt;</div><div class="line">&lt;/application&gt;</div></pre></td></tr></table></figure>
+<p>设置格式ARGB_8888</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);</div></pre></td></tr></table></figure>
+<p>设置缓存到data目录下<br>/data/data/your_package_name/image_manager_disk_cache/<br>DiskCache.Factory.DEFAULT_DISK_CACHE_DIR为默认缓存目录名image_manager_disk_cache,可以修改自己想要的名称<br>DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE为默认缓存大小250M,参数单位是字节Byte,250M则是 250 ×1024×1024Byte</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">builder.setDiskCache(</div><div class="line">	new InternalCacheDiskCacheFactory(context,</div><div class="line">	DiskCache.Factory.DEFAULT_DISK_CACHE_DIR,</div><div class="line">	DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE));</div></pre></td></tr></table></figure>
+<p>设置缓存到SD卡下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">builder.setDiskCache(</div><div class="line">	new ExternalCacheDiskCacheFactory(context,</div><div class="line">	DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, </div><div class="line">	DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE));</div></pre></td></tr></table></figure>
+<p>设置内存缓存大小,这里设置的是默认大小的1.2倍，默认大小是多少还没有测试下，大家可以运行打印一下看看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">MemorySizeCalculator calculator = new MemorySizeCalculator(context);</div><div class="line">int defaultMemoryCacheSize = calculator.getMemoryCacheSize();</div><div class="line">int defaultBitmapPoolSize = calculator.getBitmapPoolSize();</div><div class="line">int customMemoryCacheSize = (int) (1.2 * defaultMemoryCacheSize);</div><div class="line">int customBitmapPoolSize = (int) (1.2 * defaultBitmapPoolSize);</div><div class="line">builder.setMemoryCache(new LruResourceCache(customMemoryCacheSize));</div><div class="line">builder.setBitmapPool(new LruBitmapPool(customBitmapPoolSize));</div></pre></td></tr></table></figure>
+<h3 id="获取缓存大小和清除缓存"><a href="#获取缓存大小和清除缓存" class="headerlink" title="获取缓存大小和清除缓存"></a>获取缓存大小和清除缓存</h3><ul>
+<li>清除内存缓存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public void clearMemory(Context context)&#123;</div><div class="line">    // 必须在UI线程中调用</div><div class="line">    Glide.get(context).clearMemory();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>清除磁盘缓存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public void clearDiskCache(Context context)&#123;</div><div class="line">    // 必须在后台线程中调用，建议同时clearMemory()</div><div class="line">    Glide.get(context).clearDiskCache();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>清除view缓存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public void clearViewCache(View view)&#123;</div><div class="line">    Glide.clear(view);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>获取缓存大小</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">public void getDiskCacheSize(Context context,TextView textView)&#123;</div><div class="line">    //获取data下</div><div class="line">    new GetDiskCacheSizeTask(textView).execute(new File(context.getCacheDir(),DiskCache.Factory.DEFAULT_DISK_CACHE_DIR));</div><div class="line">    //获取sd卡下</div><div class="line">    //new GetDiskCacheSizeTask(textView).execute(new File(context.getExternalCacheDir(),DiskCache.Factory.DEFAULT_DISK_CACHE_DIR));</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">class GetDiskCacheSizeTask extends AsyncTask&lt;File, Long, Long&gt;&#123;</div><div class="line">    private final TextView resultView;</div><div class="line"></div><div class="line">    public GetDiskCacheSizeTask(TextView resultView) &#123;</div><div class="line">        this.resultView = resultView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onPreExecute() &#123;</div><div class="line">        resultView.setText(&quot;Calculating...&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onProgressUpdate(Long... values) &#123; /* onPostExecute(values[values.length - 1]); */ &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected Long doInBackground(File... dirs) &#123;</div><div class="line">        try &#123;</div><div class="line">            long totalSize = 0;</div><div class="line">            for (File dir : dirs) &#123;</div><div class="line">                publishProgress(totalSize);</div><div class="line">                totalSize += calculateSize(dir);</div><div class="line">            &#125;</div><div class="line">            return totalSize;</div><div class="line">        &#125; catch (RuntimeException ex) &#123;</div><div class="line">            final String message = String.format(&quot;Cannot get size of %s: %s&quot;, Arrays.toString(dirs), ex);</div><div class="line">            new Handler(Looper.getMainLooper()).post(new Runnable() &#123;</div><div class="line">                @Override</div><div class="line">                public void run() &#123;</div><div class="line">                    resultView.setText(&quot;error&quot;);</div><div class="line">                    Toast.makeText(resultView.getContext(),message,Toast.LENGTH_LONG).show();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">        return 0L;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onPostExecute(Long size) &#123;</div><div class="line">        String sizeText = android.text.format.Formatter.formatFileSize(resultView.getContext(), size);</div><div class="line">        resultView.setText(sizeText);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private long calculateSize(File dir) &#123;</div><div class="line">        if (dir == null) return 0;</div><div class="line">        if (!dir.isDirectory()) return dir.length();</div><div class="line">        long result = 0;</div><div class="line">        File[] children = dir.listFiles();</div><div class="line">        if (children != null)</div><div class="line">            for (File child : children)</div><div class="line">                result += calculateSize(child);</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="加载本地资源转换"><a href="#加载本地资源转换" class="headerlink" title="加载本地资源转换"></a>加载本地资源转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//SD卡下图片</div><div class="line">   public String getSDSource(String fullPath)&#123;</div><div class="line">       return &quot;file://&quot;+ fullPath;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">//ASSETS下图片</div><div class="line">   public String getAssetsSource(String fileName)&#123;</div><div class="line">       return &quot;file:///android_asset/&quot;+fileName;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">//Raw下视频可以解析一张图片</div><div class="line">   public String getRawSource(Context context,int rawRid)&#123;</div><div class="line">       return &quot;android.resource://&quot;+context.getPackageName()+&quot;/raw/&quot;+rawRid;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">//Drawable图片</div><div class="line">   public String getDrawableSource(Context context,int drawRid)&#123;</div><div class="line">       return &quot;android.resource://&quot;+context.getPackageName()+&quot;/drawable/&quot;+drawRid;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">        .load(url)                                          //加载资源</div><div class="line">        .thumbnail(0.1f)                                    //用原图的1/10作为缩略图,如果缩略图比全尺寸图先加载完，就显示缩略图，否则就不显示</div><div class="line">        //.thumbnail(getDrawableRequestBuilder(context,rid))    //本地资源作为缩略图</div><div class="line">        .centerCrop()                                       //设置scaleType</div><div class="line">        .placeholder(null)                                  //设置资源加载过程中的占位Drawable。</div><div class="line">        .crossFade()                                        //设置加载渐变动画</div><div class="line">        .priority(Priority.NORMAL)                          //指定加载的优先级，优先级越高越优先加载，但不保证所有图片都按序加载。枚举Priority.IMMEDIATE，Priority.HIGH，Priority.NORMAL，Priority.LOW。默认为Priority.NORMAL。                                  </div><div class="line">        .fallback(null)                                     //设置model为空时要显示的Drawable。如果没设置fallback，model为空时将显示error的Drawable，如果error的Drawable也没设置，就显示placeholder的Drawable。</div><div class="line">        .error(null)                                        //设置load失败时显示的Drawable。</div><div class="line">        .listener(listener)                                 //请求监听</div><div class="line">        .skipMemoryCache(true)                              //设置跳过内存缓存，但不保证一定不被缓存（比如请求已经在加载资源且没设置跳过内存缓存，这个资源就会被缓存在内存中）。</div><div class="line">        .diskCacheStrategy(DiskCacheStrategy.RESULT)        //缓存策略DiskCacheStrategy.SOURCE：缓存原始数据，DiskCacheStrategy.RESULT：缓存变换(如缩放、裁剪等)后的资源数据，DiskCacheStrategy.NONE：什么都不缓存，DiskCacheStrategy.ALL：缓存SOURC和RESULT。默认采用DiskCacheStrategy.RESULT策略，对于download only操作要使用DiskCacheStrategy.SOURCE。</div><div class="line">        .bitmapTransform(new CropCircleTransformation(context))  //圆角裁切</div><div class="line">        .into(imageView);</div></pre></td></tr></table></figure>
+<p><code>.thumbnail(0.1f)</code>用原图的1/10作为缩略图,如果缩略图比全尺寸图先加载完，就显示缩略图，否则就不显示<br><code>.thumbnail(getDrawableRequestBuilder(context,rid))</code>用本地资源作为缩略图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public DrawableRequestBuilder&lt;Integer&gt; getDrawableRequestBuilder(Context context,int drawRid)&#123;</div><div class="line">       return Glide</div><div class="line">               .with(context)</div><div class="line">               .load(drawRid);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><code>.placeholder(Drawable)</code>设置资源加载过程中的占位Drawable<br><code>.fallback(Drawable)</code>设置为空显示的Drawable<br><code>.error(Drawable)</code>设置加载失败显示的Drawable<br><code>.crossFade()</code>设置加载渐变动画<br><code>.diskCacheStrategy(DiskCacheStrategy.RESULT)</code>设置缓存策略，DiskCacheStrategy.SOURCE：缓存原始数据，DiskCacheStrategy.RESULT：缓存变换(如缩放、裁剪等)后的资源数据，DiskCacheStrategy.NONE：什么都不缓存，DiskCacheStrategy.ALL：缓存SOURC和RESULT。默认采用DiskCacheStrategy.RESULT策略，对于download only操作要使用DiskCacheStrategy.SOURCE。</p>
+<h3 id="转换图片效果"><a href="#转换图片效果" class="headerlink" title="转换图片效果"></a>转换图片效果</h3><p>在builde.gradle里面添加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;jp.wasabeef:glide-transformations:2.0.1&apos;</div></pre></td></tr></table></figure>
+<p>github地址：<a href="https://github.com/wasabeef/glide-transformations" target="_blank" rel="external">https://github.com/wasabeef/glide-transformations</a></p>
+<p><code>.bitmapTransform(new RoundedCornersTransformation(context,30,0, RoundedCornersTransformation.CornerType.ALL))</code>圆角处理</p>
+<p><code>.bitmapTransform(new CropCircleTransformation(context))</code>圆形处理<br><code>..bitmapTransform(new GrayscaleTransformation(context))</code>灰度处理</p>
+<p>…等等还有很多效果，感兴趣的可以上github上找找api尝试一些其它效果</p>
+<p>如果想自定义图片效果也是可以滴</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">public class MyTransformation extends BitmapTransformation&#123;</div><div class="line"></div><div class="line">    public MyTransformation(Context context) &#123;</div><div class="line">        super(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected Bitmap transform(BitmapPool pool, Bitmap toTransform,int outWidth, int outHeight) &#123;</div><div class="line">        Bitmap result = pool.get(outWidth, outHeight, Bitmap.Config.ARGB_8888);</div><div class="line">        // 如果BitmapPool中找不到符合该条件的Bitmap，get()方法会返回null，就需要我们自己创建Bitmap了</div><div class="line">        if (result == null) &#123;</div><div class="line">            // 如果想让Bitmap支持透明度，就需要使用ARGB_8888</div><div class="line">            result = Bitmap.createBitmap(outWidth, outHeight, Bitmap.Config.ARGB_8888);</div><div class="line">        &#125;</div><div class="line">        //创建最终Bitmap的Canvas.</div><div class="line">        Canvas canvas = new Canvas(result);</div><div class="line">        Paint paint = new Paint();</div><div class="line">        paint.setAlpha(128);</div><div class="line">        // 将原始Bitmap处理后画到最终Bitmap中</div><div class="line">        canvas.drawBitmap(toTransform, 0, 0, paint);</div><div class="line">        // 由于我们的图片处理替换了原始Bitmap，就return我们新的Bitmap就行。</div><div class="line">        // Glide会自动帮我们回收原始Bitmap。</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getId() &#123;</div><div class="line">        // 返回代表该变换的唯一Id，会作为cache key的一部分。</div><div class="line">        // 注意：最好不要用getClass().getName()，因为容易受混淆影响。如果变换过程不影响缓存数据，可以返回空字符串。</div><div class="line">        return &quot;com.example.myapp.MyTransformation&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Glide的学习也就到这里了，目前还没有在项目中用起来，大家用的过程中可能会碰到一些问题，欢迎给我评论留言，共同交流学习进步。</p>
+<p>后面我也会陆续写一些其它库的学习文章，希望大家多多关注支持哈~</p>
+<p>好记性不如烂笔头！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/11/2016-04-11-Android/" rel="next" title="图片压缩之多种压缩方式结合使用">
+                <i class="fa fa-chevron-left"></i> 图片压缩之多种压缩方式结合使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/17/2016-08-17-okhttp/" rel="prev" title="你必须学会的okhttp3.0入门篇">
+                你必须学会的okhttp3.0入门篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Soaic" />
+          <p class="site-author-name" itemprop="name">Soaic</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Glide的特点"><span class="nav-number">1.</span> <span class="nav-text">Glide的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境"><span class="nav-number">2.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">3.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用配置"><span class="nav-number">4.</span> <span class="nav-text">常用配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取缓存大小和清除缓存"><span class="nav-number">5.</span> <span class="nav-text">获取缓存大小和清除缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载本地资源转换"><span class="nav-number">6.</span> <span class="nav-text">加载本地资源转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-number">7.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换图片效果"><span class="nav-number">8.</span> <span class="nav-text">转换图片效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Soaic</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("nSNhFcJCeysT9vRXgfNvtbQF-gzGzoHsz", "aegQNi8pntiOE4R2z0e5B84D");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="MVP大家最先想到的应该是LOL和CF里面的MVP荣誉吧，玩过的应该都知道指的是Most-Valuable-Player(全场表现最佳DE游戏玩家) 以前也经常玩，平常凌晨一两点，周末凌晨三四点，想想那段时间还是挺疯的，浪费了那么多时间，现在得赶紧抓紧时间好好学习，多写简书，好好工作，定个小目标，挣他一个亿！ 好了废话就不多说，进入正题，我们这里说的MVP则是一种设计模式，说起MVP那就要先说说M">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你应该学会的设计模式MVP">
+<meta property="og:url" content="http://yoursite.com/2016/09/05/2016-09-06-mvp/index.html">
+<meta property="og:site_name" content="Soaic&#39;s Notes">
+<meta property="og:description" content="MVP大家最先想到的应该是LOL和CF里面的MVP荣誉吧，玩过的应该都知道指的是Most-Valuable-Player(全场表现最佳DE游戏玩家) 以前也经常玩，平常凌晨一两点，周末凌晨三四点，想想那段时间还是挺疯的，浪费了那么多时间，现在得赶紧抓紧时间好好学习，多写简书，好好工作，定个小目标，挣他一个亿！ 好了废话就不多说，进入正题，我们这里说的MVP则是一种设计模式，说起MVP那就要先说说M">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1460246-d0e51309dff6a8f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1460246-ea98d849ecd73be5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1460246-cadba6a41a9a8738.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1460246-565de74e7178c7c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-10T09:29:26.271Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你应该学会的设计模式MVP">
+<meta name="twitter:description" content="MVP大家最先想到的应该是LOL和CF里面的MVP荣誉吧，玩过的应该都知道指的是Most-Valuable-Player(全场表现最佳DE游戏玩家) 以前也经常玩，平常凌晨一两点，周末凌晨三四点，想想那段时间还是挺疯的，浪费了那么多时间，现在得赶紧抓紧时间好好学习，多写简书，好好工作，定个小目标，挣他一个亿！ 好了废话就不多说，进入正题，我们这里说的MVP则是一种设计模式，说起MVP那就要先说说M">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1460246-d0e51309dff6a8f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/05/2016-09-06-mvp/"/>
+
+
+
+
+
+  <title>你应该学会的设计模式MVP | Soaic's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Soaic's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/05/2016-09-06-mvp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Soaic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Soaic's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">你应该学会的设计模式MVP</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-05T22:04:00+08:00">
+                2016-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/09/05/2016-09-06-mvp/" class="leancloud_visitors" data-flag-title="你应该学会的设计模式MVP">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MVP大家最先想到的应该是LOL和CF里面的MVP荣誉吧，玩过的应该都知道指的是Most-Valuable-Player(全场表现最佳DE游戏玩家)</p>
+<p>以前也经常玩，平常凌晨一两点，周末凌晨三四点，想想那段时间还是挺疯的，浪费了那么多时间，现在得赶紧抓紧时间好好学习，多写简书，好好工作，定个小目标，挣他一个亿！</p>
+<p>好了废话就不多说，进入正题，我们这里说的MVP则是一种设计模式，说起MVP那就要先说说MVC设计模式了，MVP就是由MVC演变而来的。</p>
+<blockquote>
+<p>MVC由Model、View、Control组成。<br>Model数据模型，提供数据<br>View视图模型，提供视图展示<br>Control控制器，负责控制Model和View通信</p>
+</blockquote>
+<a id="more"></a>
+<p>MVC在Android中的应用，如下图，Activity为Control，XML为View，请求网络数据模块为Model。View箭头指向Control意为传递数据，那就是Control获取View的数据传递给Model来请求网络，请求到的数据直接传递给View来显示，这是一条主线。还有一条就是底部这两个箭头，也就是说Model可以不通过Control，直接获取View的数据，然后再返回结果数据给View。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1460246-d0e51309dff6a8f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVC.png"></p>
+<blockquote>
+<p>MVP由Model、View、Presenter组成。<br>Model数据模型，提供数据<br>View视图模型，提供视图展示<br>Presenter主持者，负责逻辑处理</p>
+</blockquote>
+<p>MVP与MVC最明显的区别就在于Presenter和Control了。如下图，Presenter传递数据给Model，Model得到数据来请求网络，再返回数据给Presenter，Presenter再把得到的Model数据传递给View显示。MVP整体的一个流程就是这样。相比MVC来说，Model和View互相不干涉，达到完全解耦</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1460246-ea98d849ecd73be5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVP.png"></p>
+<p>估计上面文字性的解释都听得有点晕，那我们就拿个例子来实战一下吧</p>
+<blockquote>
+<p>下面和大家一起完成一个简单查询快递信息的例子，里面用到了当下最流行的架构RxJava+Retrofit+MVP+OkHttp，非常值得大家一学</p>
+</blockquote>
+<h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>在builde.gradle里面添加  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.android.support:appcompat-v7:23.3.0&apos;</div><div class="line">compile &apos;com.squareup.retrofit2:retrofit:2.1.0&apos;</div><div class="line">compile &apos;com.squareup.retrofit2:adapter-rxjava:2.1.0&apos;</div><div class="line">compile &apos;com.squareup.retrofit2:converter-gson:2.1.0&apos;</div><div class="line">compile &apos;com.squareup.okhttp3:okhttp:3.4.1&apos;</div><div class="line">compile &apos;io.reactivex:rxandroid:1.2.1&apos;</div><div class="line">compile &apos;io.reactivex:rxjava:1.1.6&apos;</div><div class="line">compile &apos;com.squareup.okhttp3:logging-interceptor:3.4.1&apos;</div></pre></td></tr></table></figure>
+<p>在AndroidManifest.xml添加所需权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;</div></pre></td></tr></table></figure>
+<h3 id="初始化配置Retrofit"><a href="#初始化配置Retrofit" class="headerlink" title="初始化配置Retrofit"></a>初始化配置Retrofit</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public class MainApp extends Application &#123;</div><div class="line">    @Override</div><div class="line">    public void onCreate() &#123;</div><div class="line">        super.onCreate();</div><div class="line">        //初始化retrofitUtils</div><div class="line">        RetrofitUtils.getInstance().initOkHttp(this);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在MainApp中初始化Retrofit,设置超时和baseUrl，添加了日志拦截以及RxJava和数据解析，并暴露一个getRetrofit()方法供需要的地方调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">public class RetrofitUtils &#123;</div><div class="line">    private Retrofit retrofit;</div><div class="line">    private String baseUrl = &quot;http://www.kuaidi100.com/&quot;;</div><div class="line">    private static class SingleLoader&#123;</div><div class="line">        private static final RetrofitUtils INSTANCE = new RetrofitUtils();</div><div class="line">    &#125;</div><div class="line">    public static RetrofitUtils getInstance()&#123;</div><div class="line">        return SingleLoader.INSTANCE;</div><div class="line">    &#125;</div><div class="line">    public void initOkHttp(@NonNull Context context)&#123;</div><div class="line">        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();</div><div class="line">        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</div><div class="line">        OkHttpClient client = new OkHttpClient.Builder()</div><div class="line">                .connectTimeout(10000L,TimeUnit.MILLISECONDS)       //设置连接超时</div><div class="line">                .readTimeout(10000L,TimeUnit.MILLISECONDS)          //设置读取超时</div><div class="line">                .writeTimeout(10000L, TimeUnit.MILLISECONDS)         //设置写入超时</div><div class="line">                .cache(new Cache(context.getCacheDir(),10 * 1024 * 1024))   //设置缓存目录和10M缓存</div><div class="line">                .addInterceptor(interceptor)	//添加日志拦截器（该方法也可以设置公共参数，头信息）</div><div class="line">                .build();</div><div class="line">        retrofit = new Retrofit.Builder()</div><div class="line">                .client(client)		//设置OkHttp</div><div class="line">                .baseUrl(baseUrl)</div><div class="line">                .addConverterFactory(GsonConverterFactory.create()) //  添加数据解析ConverterFactory</div><div class="line">                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())   //添加RxJava</div><div class="line">                .build();</div><div class="line">    &#125;</div><div class="line">    public Retrofit getRetrofit()&#123;</div><div class="line">        return retrofit;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public interface PostSearchModel &#123;</div><div class="line">    /**</div><div class="line">     * 请求快递信息</div><div class="line">     * @param type 快递类型</div><div class="line">     * @param postid 快递单号</div><div class="line">     * @param callback 结果回调</div><div class="line">     */</div><div class="line">    void requestPostSearch(String type,String postid,PostSearchCallback callback);</div><div class="line">    interface PostSearchCallback&#123;</div><div class="line">        void requestPostSearchSuccess(PostQueryInfo postQueryInfo);</div><div class="line">        void requestPostSearchFail(String failStr);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line">创建这个PostSearchModel接口，方便后期可以不修改之前代码灵活切换多种实现方式</div></pre></td></tr></table></figure>
+<p>public interface PostServiceBiz {<br>    @POST(“query”)<br>    Observable<postqueryinfo> searchRx(@Query(“type”) String type, @Query(“postid”) String postid);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">public class PostQueryInfo &#123;</div><div class="line">    private String message;</div><div class="line">    private String nu;</div><div class="line">    private String ischeck;</div><div class="line">    private String com;</div><div class="line">    private String status;</div><div class="line">    private String condition;</div><div class="line">    private String state;</div><div class="line">    private List&lt;DataBean&gt; data;</div><div class="line">    public static class DataBean &#123;</div><div class="line">        private String time;</div><div class="line">        private String context;</div><div class="line">        private String ftime;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></postqueryinfo></p>
+<p>PostQueryInfo没有添加get和set方法，大家自行快捷键了<br>PostSearchModelImpl实现上面PostSearchModel接口，利用上一篇文章里学的Retrofit结合RxJava来请求网络<br>这里传了PostSearchCallback回调函数，成功或者失败都通过回调函数返回，完全不需要考虑其它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public class PostSearchModelImpl implements PostSearchModel &#123;</div><div class="line">    @Override</div><div class="line">    public void requestPostSearch(String type, String postid, final PostSearchCallback callback) &#123;</div><div class="line">        RetrofitUtils.getInstance()</div><div class="line">                .getRetrofit()</div><div class="line">                .create(PostServiceBiz.class)</div><div class="line">                .searchRx(type,postid)</div><div class="line">                //访问网络切换异步线程</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                //响应结果处理切换成主线程</div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                .subscribe(new Subscriber&lt;PostQueryInfo&gt;() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onCompleted() &#123;</div><div class="line">                        //请求结束回调</div><div class="line">                    &#125;</div><div class="line">                    @Override</div><div class="line">                    public void onError(Throwable e) &#123;</div><div class="line">                        //错误回调</div><div class="line">                        callback.requestPostSearchFail(e.getMessage());</div><div class="line">                    &#125;</div><div class="line">                    @Override</div><div class="line">                    public void onNext(PostQueryInfo postQueryInfo) &#123;</div><div class="line">                        //成功结果返回</div><div class="line">                        callback.requestPostSearchSuccess(postQueryInfo);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><p>activity_main.xml主界面布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;LinearLayout</div><div class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    android:padding=&quot;16dp&quot;</div><div class="line">    tools:context=&quot;.ui.MainActivity&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;&gt;</div><div class="line">    &lt;LinearLayout</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:orientation=&quot;horizontal&quot;&gt;</div><div class="line">        &lt;TextView</div><div class="line">            android:layout_width=&quot;wrap_content&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:text=&quot;快递公司名：&quot;/&gt;</div><div class="line">        &lt;EditText</div><div class="line">            android:id=&quot;@+id/post_name_et&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:text=&quot;yuantong&quot;/&gt;</div><div class="line">    &lt;/LinearLayout&gt;</div><div class="line">    &lt;LinearLayout</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:orientation=&quot;horizontal&quot;&gt;</div><div class="line">        &lt;TextView</div><div class="line">            android:layout_width=&quot;wrap_content&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:text=&quot;快 递  单 号：&quot;</div><div class="line">            /&gt;</div><div class="line">        &lt;EditText</div><div class="line">            android:id=&quot;@+id/post_id_et&quot;</div><div class="line">            android:layout_width=&quot;match_parent&quot;</div><div class="line">            android:layout_height=&quot;wrap_content&quot;</div><div class="line">            android:text=&quot;500379523313&quot;/&gt;</div><div class="line">    &lt;/LinearLayout&gt;</div><div class="line">    &lt;Button</div><div class="line">        android:id=&quot;@+id/post_search_bn&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:text=&quot;查询&quot;/&gt;</div><div class="line">    &lt;ListView</div><div class="line">        android:id=&quot;@+id/post_list_lv&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;match_parent&quot;</div><div class="line">        android:listSelector=&quot;@null&quot;</div><div class="line">        android:background=&quot;@null&quot;/&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
+<p>view_item_logistics.xml<br>listview适配器的item布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;wrap_content&quot;</div><div class="line">    android:background=&quot;#FFFFFF&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;</div><div class="line">    android:padding=&quot;15dp&quot;&gt;</div><div class="line">    &lt;TextView</div><div class="line">        android:id=&quot;@+id/tv_conent&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:textColor=&quot;#8f8f8f&quot;</div><div class="line">        android:textSize=&quot;14sp&quot;</div><div class="line">        android:text=&quot;【深圳市】广东分公司已出发&quot; /&gt;</div><div class="line">    &lt;TextView</div><div class="line">        android:layout_marginTop=&quot;13dp&quot;</div><div class="line">        android:id=&quot;@+id/tv_date&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:textColor=&quot;#8f8f8f&quot;</div><div class="line">        android:textSize=&quot;12sp&quot;</div><div class="line">        android:layout_marginBottom=&quot;13dp&quot;</div><div class="line">        android:paddingLeft=&quot;6dp&quot;</div><div class="line">        android:text=&quot;2016-05-03 18:23&quot; /&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
+<p>ListView适配器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">public class LogisticsAdapter extends BaseAdapter &#123;</div><div class="line">    private List&lt;PostQueryInfo.DataBean&gt; datas;</div><div class="line">    private LayoutInflater inflater;</div><div class="line">    public LogisticsAdapter(Context context, List&lt;PostQueryInfo.DataBean&gt; datas) &#123;</div><div class="line">        this.datas = datas;</div><div class="line">        inflater = LayoutInflater.from(context);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public View getView(int i, View view, ViewGroup viewGroup) &#123;</div><div class="line">        PostQueryInfo.DataBean data = datas.get(i);</div><div class="line">        view = inflater.inflate(R.layout.view_item_logistics, null);</div><div class="line">        TextView tv_content= (TextView) view.findViewById(R.id.tv_conent);</div><div class="line">        TextView tv_date= (TextView) view.findViewById(R.id.tv_date);</div><div class="line">        tv_content.setText(data.getContext().replace(&quot;[&quot;,&quot;【&quot;).replace(&quot;]&quot;,&quot;】&quot;));</div><div class="line">        tv_date.setText(data.getTime());</div><div class="line">        return view;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public int getCount() &#123;</div><div class="line">        return datas != null ? datas.size() : 0;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public Object getItem(int i) &#123;</div><div class="line">        return datas.get(i);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public long getItemId(int i) &#123;</div><div class="line">        return i;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>BaseView提供通用显示和隐藏加载框，如果有通用的方法都可以在写在这里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface BaseView &#123;</div><div class="line">    void showProgressDialog();    </div><div class="line">    void hideProgressDialog();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>MainView接口继承提供MainActivity所有需要更新界面UI的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface MainView extends BaseView&#123;</div><div class="line">    void updateListUI(PostQueryInfo postQueryInfo);</div><div class="line">    void errorToast(String message);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>BaseActivity实现BaseVew所有接口方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public class BaseActivity extends Activity implements BaseView&#123;</div><div class="line">    private ProgressDialog progressDialog;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState)&#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        progressDialog = new ProgressDialog(this);</div><div class="line">        progressDialog.setMessage(&quot;查询中...&quot;);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void showProgressDialog()&#123;</div><div class="line">        if(progressDialog!=null)&#123;</div><div class="line">            progressDialog.show();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void hideProgressDialog()&#123;</div><div class="line">        if(progressDialog!=null&amp;&amp;progressDialog.isShowing())&#123;</div><div class="line">            progressDialog.dismiss(); </div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>MainActivity继承BaseActivity实现MainView所有方法供PostPresenter调用，点击查询按钮通过实例化的PostPresenter，调用相关方法，后面的事情就全部交给PostPresenter去处理了，在activity销毁的时候调用postPresenter.detach()防止内存泄漏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends BaseActivity implements View.OnClickListener, MainView &#123;</div><div class="line">    private EditText post_name_et;</div><div class="line">    private EditText post_id_et;</div><div class="line">    private ListView post_list_lv;</div><div class="line">    private Button post_search_bn;</div><div class="line">    private PostPresenter postPresenter;</div><div class="line">    private List&lt;PostQueryInfo.DataBean&gt; dataArray = new ArrayList&lt;&gt;();</div><div class="line">    private LogisticsAdapter logisticsAdapter;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState)&#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        initView();</div><div class="line">        initData();</div><div class="line">        initEvent();</div><div class="line">    &#125;</div><div class="line">    private void initView() &#123;</div><div class="line">        post_name_et = (EditText) findViewById(R.id.post_name_et);</div><div class="line">        post_id_et = (EditText) findViewById(R.id.post_id_et);</div><div class="line">        post_list_lv = (ListView) findViewById(R.id.post_list_lv);</div><div class="line">        post_search_bn = (Button) findViewById(R.id.post_search_bn);</div><div class="line">    &#125;</div><div class="line">    private void initData() &#123;</div><div class="line">        logisticsAdapter = new LogisticsAdapter(getApplicationContext(),dataArray);</div><div class="line">        postPresenter = new PostPresenter(this);</div><div class="line">        post_list_lv.setAdapter(logisticsAdapter);</div><div class="line">    &#125;</div><div class="line">    private void initEvent() &#123;</div><div class="line">        post_search_bn.setOnClickListener(this);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void onClick(View v) &#123;</div><div class="line">        switch(v.getId())&#123;</div><div class="line">            case R.id.post_search_bn:</div><div class="line">           postPresenter.requestHomeData(post_name_et.getText().toString(),post_id_et.getText().toString());</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void updateListUI(PostQueryInfo postQueryInfo) &#123;</div><div class="line">        dataArray.clear();</div><div class="line">        dataArray.addAll(postQueryInfo.getData());</div><div class="line">        logisticsAdapter.notifyDataSetChanged();</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void errorToast(String message) &#123;</div><div class="line">        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    protected void onDestroy()&#123;</div><div class="line">        //防止activity销毁,postPresenter对象还存在造成的内存泄漏</div><div class="line">        if(postPresenter!=null) postPresenter.detach();</div><div class="line">        super.onDestroy();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Presenter"><a href="#Presenter" class="headerlink" title="Presenter"></a>Presenter</h3><p>BasePresenter基类，提供了一个通用view对象，以及初始化和销毁view对象的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public abstract class BasePresenter&lt;T&gt;&#123;</div><div class="line">    public T mView;</div><div class="line">    public void attach(T view)&#123;</div><div class="line">        this.mView = view;</div><div class="line">    &#125;</div><div class="line">    public void detach()&#123;</div><div class="line">        mView = null;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PostPresenter在构造函数中通过基类attach的方法初始化MainActivity提供的view对象，实例化PostSearchModelImpl对象，通过它提供的方法来请求网络数据，在成功和失败回调的函数里，可以做一些逻辑处理，通过view对象更新相应的UI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">public class PostPresenter extends BasePresenter&lt;MainView&gt;&#123;</div><div class="line">    private PostSearchModel postSearchModel;</div><div class="line">    public PostPresenter(MainView mainView)&#123;</div><div class="line">        attach(mainView);</div><div class="line">        postSearchModel = new PostSearchModelImpl();</div><div class="line">    &#125;</div><div class="line">    public void requestHomeData(String type,String postid)&#123;</div><div class="line">        if(postSearchModel == null||mView == null)</div><div class="line">            return;</div><div class="line">        mView.showProgressDialog();</div><div class="line">        postSearchModel.requestPostSearch(type, postid, new PostSearchModel.PostSearchCallback() &#123;</div><div class="line">            @Override</div><div class="line">            public void requestPostSearchSuccess(PostQueryInfo postQueryInfo) &#123;</div><div class="line">                mView.hideProgressDialog();</div><div class="line">                if(postQueryInfo!=null&amp;&amp;&quot;ok&quot;.equals(postQueryInfo.getMessage())) &#123;</div><div class="line">                    mView.updateListUI(postQueryInfo);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            @Override</div><div class="line">            public void requestPostSearchFail(String failStr) &#123;</div><div class="line">                mView.hideProgressDialog();</div><div class="line">                mView.errorToast(failStr);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>到这里全部代码基本都已编写完，代码的结构如下图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1460246-cadba6a41a9a8738.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVP结构图.png"></p>
+<p>下面就运行程序看看效果吧，快递公司名和快递单号默认填写上去了，大家只需要点击查询，结果和下面图片一样就说明成功了</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1460246-565de74e7178c7c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="快递查询.png"></p>
+<p>为什么没有直接提供一个可以运行的DEMO出来，原因很简单就是希望大家能够跟着一步一步学习，然后动手慢慢边敲代码边理解，最后敲完运行成功，应该就会更加理解MVP了。</p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><blockquote>
+<p>上面MVC、MVP流程图制作的网站分享个大家：<br><a href="https://www.processon.com/i/53c777a70cf27d6e7f2c6fe5" target="_blank" rel="external">https://www.processon.com/</a><br>这个网站还可以做四维导图、UI原型图和UML图等等很多，有需要的可以去看看</p>
+</blockquote>
+<p><strong>成功源于不断的学习和积累</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/05/2016-09-05-Retrofit/" rel="next" title="你必须了解的网络框架Retrofit2.0">
+                <i class="fa fa-chevron-left"></i> 你必须了解的网络框架Retrofit2.0
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/23/2016-09-23-rxjava/" rel="prev" title="带大家进入RxJava的世界">
+                带大家进入RxJava的世界 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Soaic" />
+          <p class="site-author-name" itemprop="name">Soaic</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境"><span class="nav-number">1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化配置Retrofit"><span class="nav-number">2.</span> <span class="nav-text">初始化配置Retrofit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">3.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View"><span class="nav-number">4.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Presenter"><span class="nav-number">5.</span> <span class="nav-text">Presenter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips"><span class="nav-number">6.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Soaic</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("nSNhFcJCeysT9vRXgfNvtbQF-gzGzoHsz", "aegQNi8pntiOE4R2z0e5B84D");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

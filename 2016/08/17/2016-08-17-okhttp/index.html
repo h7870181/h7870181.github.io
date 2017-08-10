@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="简单说一下学习okhttp的理由  google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp 高效的使用HTTP,使应用运行更快更省流量 响应缓存数据避免重复网络请求 无缝的支持GZIP来减少数据流量     使用非常简单，请求和响应的Api具有流畅的建造和不变性，同时支持同步异步调用回调函数 如果网络出现问题，它会从常见的连接问题中恢复 如果服务器配置有">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你必须学会的okhttp3.0入门篇">
+<meta property="og:url" content="http://yoursite.com/2016/08/17/2016-08-17-okhttp/index.html">
+<meta property="og:site_name" content="Soaic&#39;s Notes">
+<meta property="og:description" content="简单说一下学习okhttp的理由  google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp 高效的使用HTTP,使应用运行更快更省流量 响应缓存数据避免重复网络请求 无缝的支持GZIP来减少数据流量     使用非常简单，请求和响应的Api具有流畅的建造和不变性，同时支持同步异步调用回调函数 如果网络出现问题，它会从常见的连接问题中恢复 如果服务器配置有">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-10T09:29:12.034Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你必须学会的okhttp3.0入门篇">
+<meta name="twitter:description" content="简单说一下学习okhttp的理由  google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp 高效的使用HTTP,使应用运行更快更省流量 响应缓存数据避免重复网络请求 无缝的支持GZIP来减少数据流量     使用非常简单，请求和响应的Api具有流畅的建造和不变性，同时支持同步异步调用回调函数 如果网络出现问题，它会从常见的连接问题中恢复 如果服务器配置有">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/17/2016-08-17-okhttp/"/>
+
+
+
+
+
+  <title>你必须学会的okhttp3.0入门篇 | Soaic's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Soaic's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/17/2016-08-17-okhttp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Soaic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Soaic's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">你必须学会的okhttp3.0入门篇</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-17T22:19:00+08:00">
+                2016-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/08/17/2016-08-17-okhttp/" class="leancloud_visitors" data-flag-title="你必须学会的okhttp3.0入门篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>简单说一下学习okhttp的理由</p>
+<ol>
+<li>google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp</li>
+<li>高效的使用HTTP,使应用运行更快更省流量</li>
+<li>响应缓存数据避免重复网络请求</li>
+<li>无缝的支持GZIP来减少数据流量    </li>
+<li>使用非常简单，请求和响应的Api具有流畅的建造和不变性，同时支持同步异步调用回调函数</li>
+<li>如果网络出现问题，它会从常见的连接问题中恢复</li>
+<li>如果服务器配置有多个IP地址，当第一个IP连接失败，它会尝试连接下一个IP</li>
+</ol>
+<a id="more"></a>
+<p>以上是okhttp官网<a href="http://square.github.io/okhttp/" target="_blank" rel="external">http://square.github.io/okhttp/</a>以及结合网上的一些理解整理出来的，看到有不对的地方还望大家多多指出</p>
+<p>下面我们就开始学习怎么使用okhttp吧</p>
+<h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>github地址：<a href="https://github.com/square/okhttp" target="_blank" rel="external">https://github.com/square/okhttp</a></p>
+<p>在builde.gradle里面添加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.squareup.okhttp3:okhttp:3.4.1&apos;</div></pre></td></tr></table></figure>
+<p>在AndroidManifest.xml添加所需权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div></pre></td></tr></table></figure>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><ul>
+<li>get异步请求</li>
+</ul>
+<p>通过get请求获取指定URL网页请求，这里要注意的是Android4.0以后需要在非主线程里使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">private OkHttpClient client = new OkHttpClient();</div><div class="line">public static void get()&#123;</div><div class="line">		//创建一个Request</div><div class="line">        Request request = new Request.Builder()</div><div class="line">                .url(&quot;http://www.jianshu.com/&quot;)</div><div class="line">                .get()</div><div class="line">                .build();</div><div class="line">        //发起异步请求，并加入回调</div><div class="line">        client.newCall(request).enqueue(new Callback()</div><div class="line">        &#123;</div><div class="line">            @Override</div><div class="line">            public void onFailure(Call call,IOException e)&#123;</div><div class="line">            	//请求失败回调</div><div class="line">            &#125;</div><div class="line">            @Override</div><div class="line">            public void onResponse(Call call,Response response) throws IOException&#123;</div><div class="line">            	//请求成功回调</div><div class="line">                Log.e(&quot;okHttp&quot;,&quot;get=&quot;+response.body().string());</div><div class="line">            &#125;</div><div class="line">        &#125;)；</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>post异步请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">private OkHttpClient client = new OkHttpClient();</div><div class="line">   public static void post()&#123;</div><div class="line">       //创建Form表单对象，可以add多个键值队</div><div class="line">       FormBody formBody = new FormBody.Builder()</div><div class="line">               .add(&quot;param&quot;,&quot;value&quot;)</div><div class="line">               .add(&quot;param&quot;,&quot;value&quot;)</div><div class="line">               .build();</div><div class="line">       //创建一个Request</div><div class="line">       Request request = new Request.Builder()</div><div class="line">               .url(&quot;http://www.jianshu.com/&quot;)</div><div class="line">               .post(formBody)</div><div class="line">               .build();</div><div class="line">       //发起异步请求，并加入回调</div><div class="line">       client.newCall(request).enqueue(new Callback()</div><div class="line">       &#123;</div><div class="line">           @Override</div><div class="line">           public void onFailure(Call call,IOException e)&#123;</div><div class="line">           &#125;</div><div class="line">           @Override</div><div class="line">           public void onResponse(Call call,Response response) throws IOException&#123;</div><div class="line">               Log.e(&quot;okHttp&quot;,&quot;post=&quot;+response.body().string());</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>同步请求</li>
+</ul>
+<p>把<code>client.newCall(request).enqueue(new Callback())</code>改成<br><code>client.newCall(request).execute().body().string()</code>即可</p>
+<ul>
+<li>文件上传与多文件上传</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public static void upload()&#123;</div><div class="line">    //多个文件集合</div><div class="line">    List&lt;File&gt; list = new ArrayList&lt;&gt;();</div><div class="line">    MultipartBody.Builder builder = new MultipartBody.Builder();</div><div class="line">    //设置为表单类型</div><div class="line">    builder.setType(MultipartBody.FORM);</div><div class="line">    //添加表单键值</div><div class="line">    builder.addFormDataPart(&quot;param&quot;,&quot;value&quot;);</div><div class="line">    for (File file : list) &#123;</div><div class="line">        //添加多个文件</div><div class="line">        RequestBody fileBody = RequestBody.create(MediaType.parse(&quot;application/octet-stream&quot;), file);</div><div class="line">        builder.addFormDataPart(&quot;files&quot;, file.getName(), fileBody);</div><div class="line">    &#125;</div><div class="line">    Request request = new Request.Builder()</div><div class="line">            .url(&quot;http://192.168.1.8/upload/UploadServlet&quot;)</div><div class="line">            .post(builder.build())</div><div class="line">            .build();</div><div class="line">    //发起异步请求，并加入回调</div><div class="line">    mOkHttpClient.newCall(request).enqueue(new Callback()</div><div class="line">    &#123;</div><div class="line">        @Override</div><div class="line">        public void onFailure(Call call,IOException e)&#123;</div><div class="line">        &#125;</div><div class="line">        @Override</div><div class="line">        public void onResponse(Call call,Response response) throws IOException&#123;</div><div class="line">            Log.e(&quot;okHttp&quot;,&quot;updLoad=&quot;+response.body().string());</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>超时设置,整个程序应使用这一个mOkHttpClient对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public static void setTimeout()&#123;</div><div class="line">    mOkHttpClient.newBuilder()</div><div class="line">            .connectTimeout(10, TimeUnit.SECONDS)//10秒连接超时</div><div class="line">            .writeTimeout(10, TimeUnit.SECONDS)//10m秒写入超时</div><div class="line">            .readTimeout(10, TimeUnit.SECONDS)//10秒读取超时</div><div class="line">            .build();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>文件下载<br>其实很简单，只需要利用get同步或异步请求，然后通过<br><code>client.newCall(request).execute().body().byteStream()</code><br>获取InputStream输入流，写文件操作即可实现文件下载。</li>
+</ul>
+<p>好了，学到这里okhttp算是入门了，其实还有很多需要我们去学习的，例如缓存、授权证书、封装、用的过中碰到的一些情况等等，都需要我们进一步的了解和学习了，后面有时间我也会针对这些，写一篇okhttp进阶篇，还望大家能够多多关注。</p>
+<p>好记性不如烂笔头！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/14/2016-08-14-glide/" rel="next" title="glide图片加载库学习">
+                <i class="fa fa-chevron-left"></i> glide图片加载库学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/05/2016-09-05-Retrofit/" rel="prev" title="你必须了解的网络框架Retrofit2.0">
+                你必须了解的网络框架Retrofit2.0 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Soaic" />
+          <p class="site-author-name" itemprop="name">Soaic</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境"><span class="nav-number">1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用"><span class="nav-number">2.</span> <span class="nav-text">基本使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Soaic</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("nSNhFcJCeysT9vRXgfNvtbQF-gzGzoHsz", "aegQNi8pntiOE4R2z0e5B84D");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
