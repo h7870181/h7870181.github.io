@@ -99,10 +99,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="图片压缩之多种压缩方式结合使用">
 <meta property="og:url" content="http://yoursite.com/2016/04/11/2016-04-11-Android/index.html">
-<meta property="og:site_name" content="Soaic&#39;s Notes">
+<meta property="og:site_name" content="Soaic&#39;s Blog">
 <meta property="og:description" content="如题，多种压缩方式常用的有尺寸压缩、质量压缩以及通过JNI调用libjpeg库来进行压缩，三种方式结合使用实现指定图片内存大小，清晰度达到最优，下面就先分别介绍下这几种压缩方式。  1. 质量压缩设置bitmap options属性，降低图片的质量，像素不会减少，第一个参数为需要压缩的bitmap图片对象，第二个参数为压缩后图片保存的位置，设置options 属性0-100，来实现压缩 publ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-10T09:27:47.215Z">
+<meta property="og:updated_time" content="2017-08-10T14:38:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片压缩之多种压缩方式结合使用">
 <meta name="twitter:description" content="如题，多种压缩方式常用的有尺寸压缩、质量压缩以及通过JNI调用libjpeg库来进行压缩，三种方式结合使用实现指定图片内存大小，清晰度达到最优，下面就先分别介绍下这几种压缩方式。  1. 质量压缩设置bitmap options属性，降低图片的质量，像素不会减少，第一个参数为需要压缩的bitmap图片对象，第二个参数为压缩后图片保存的位置，设置options 属性0-100，来实现压缩 publ">
@@ -140,7 +140,7 @@
 
 
 
-  <title>图片压缩之多种压缩方式结合使用 | Soaic's Notes</title>
+  <title>图片压缩之多种压缩方式结合使用 | Soaic's Blog</title>
   
 
 
@@ -170,7 +170,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Soaic's Notes</span>
+        <span class="site-title">Soaic's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -266,7 +266,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Soaic's Notes">
+      <meta itemprop="name" content="Soaic's Blog">
     </span>
 
     
@@ -299,6 +299,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/11/2016-04-11-Android/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/04/11/2016-04-11-Android/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -602,6 +613,13 @@ public static void compressBitmap(Bitmap image, String filePath) {
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -655,6 +673,15 @@ public static void compressBitmap(Bitmap image, String filePath) {
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -780,6 +807,8 @@ public static void compressBitmap(Bitmap image, String filePath) {
   
 
 
+  
+
 
 
 
@@ -807,6 +836,9 @@ public static void compressBitmap(Bitmap image, String filePath) {
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -846,6 +878,26 @@ public static void compressBitmap(Bitmap image, String filePath) {
 
   
 
+    
+      <script id="dsq-count-scr" src="https://soaic-blog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2016/04/11/2016-04-11-Android/';
+          this.page.identifier = '2016/04/11/2016-04-11-Android/';
+          this.page.title = '图片压缩之多种压缩方式结合使用';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://soaic-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -858,10 +910,6 @@ public static void compressBitmap(Bitmap image, String filePath) {
   
 
 
-
-
-
-  
 
 
 

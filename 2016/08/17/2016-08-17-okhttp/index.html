@@ -99,10 +99,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="你必须学会的okhttp3.0入门篇">
 <meta property="og:url" content="http://yoursite.com/2016/08/17/2016-08-17-okhttp/index.html">
-<meta property="og:site_name" content="Soaic&#39;s Notes">
+<meta property="og:site_name" content="Soaic&#39;s Blog">
 <meta property="og:description" content="简单说一下学习okhttp的理由  google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp 高效的使用HTTP,使应用运行更快更省流量 响应缓存数据避免重复网络请求 无缝的支持GZIP来减少数据流量     使用非常简单，请求和响应的Api具有流畅的建造和不变性，同时支持同步异步调用回调函数 如果网络出现问题，它会从常见的连接问题中恢复 如果服务器配置有">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-10T09:29:12.034Z">
+<meta property="og:updated_time" content="2017-08-10T14:38:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你必须学会的okhttp3.0入门篇">
 <meta name="twitter:description" content="简单说一下学习okhttp的理由  google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp 高效的使用HTTP,使应用运行更快更省流量 响应缓存数据避免重复网络请求 无缝的支持GZIP来减少数据流量     使用非常简单，请求和响应的Api具有流畅的建造和不变性，同时支持同步异步调用回调函数 如果网络出现问题，它会从常见的连接问题中恢复 如果服务器配置有">
@@ -140,7 +140,7 @@
 
 
 
-  <title>你必须学会的okhttp3.0入门篇 | Soaic's Notes</title>
+  <title>你必须学会的okhttp3.0入门篇 | Soaic's Blog</title>
   
 
 
@@ -170,7 +170,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Soaic's Notes</span>
+        <span class="site-title">Soaic's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -266,7 +266,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Soaic's Notes">
+      <meta itemprop="name" content="Soaic's Blog">
     </span>
 
     
@@ -297,8 +297,41 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android框架/" itemprop="url" rel="index">
+                    <span itemprop="name">Android框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/08/17/2016-08-17-okhttp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/08/17/2016-08-17-okhttp/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -419,8 +452,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/05/2016-09-05-Retrofit/" rel="prev" title="你必须了解的网络框架Retrofit2.0">
-                你必须了解的网络框架Retrofit2.0 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/05/2016-09-06-mvp/" rel="prev" title="你应该学会的设计模式MVP">
+                你应该学会的设计模式MVP <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,6 +483,13 @@
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -504,6 +544,15 @@
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -629,6 +678,8 @@
   
 
 
+  
+
 
 
 
@@ -656,6 +707,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -695,6 +749,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://soaic-blog.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2016/08/17/2016-08-17-okhttp/';
+          this.page.identifier = '2016/08/17/2016-08-17-okhttp/';
+          this.page.title = '你必须学会的okhttp3.0入门篇';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://soaic-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -707,10 +781,6 @@
   
 
 
-
-
-
-  
 
 
 
