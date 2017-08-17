@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -111,7 +111,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -429,6 +429,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/05/2016-09-05-Retrofit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Soaic">
+      <meta itemprop="description" content="Welcome!">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Soaic's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/05/2016-09-05-Retrofit/" itemprop="url">你必须了解的网络框架Retrofit2.0</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-05T22:04:00+08:00">
+                2016-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android框架/" itemprop="url" rel="index">
+                    <span itemprop="name">Android框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016/09/05/2016-09-05-Retrofit/" class="leancloud_visitors" data-flag-title="你必须了解的网络框架Retrofit2.0">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>上一篇学习了okhttp的入门篇，这一篇学习的retrofit底层默认使用的就是okhttp，相信大家多少也听过这个框架，下面我们就来一起学习下，讲真，学会之后这个框架用起来真的很爽，特别灵活。</p>
+<p>按照习惯先来说一下它的优缺点</p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><blockquote>
+<ol>
+<li>可以配置不同HTTP client来实现网络请求，如okhttp、httpclient等</li>
+<li>请求的方法参数注解都可以定制</li>
+<li>支持同步、异步和RxJava</li>
+<li>超级解耦</li>
+<li>可以配置不同的反序列化工具来解析数据，如json、xml等</li>
+<li>使用非常方便灵活</li>
+<li>框架使用了很多设计模式(感兴趣的可以看看源码学习学习)</li>
+</ol>
+</blockquote>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><blockquote>
+<ol>
+<li>不能接触序列化实体和响应数据</li>
+<li>执行的机制太严格</li>
+<li>使用转换器比较低效</li>
+<li>只能支持简单自定义参数类型</li>
+</ol>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/05/2016-09-05-Retrofit/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/17/2016-08-17-okhttp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,7 +711,7 @@
         
           <p>简单说一下学习okhttp的理由</p>
 <ol>
-<li>google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp</li>
+<li>google在Android 6.0中删除了HttpClient的Api,采用的是则是okhttp  </li>
 <li>高效的使用HTTP,使应用运行更快更省流量</li>
 <li>响应缓存数据避免重复网络请求</li>
 <li>无缝的支持GZIP来减少数据流量    </li>
@@ -844,22 +1021,7 @@
 <p>如题，多种压缩方式常用的有尺寸压缩、质量压缩以及通过JNI调用libjpeg库来进行压缩，三种方式结合使用实现指定图片内存大小，清晰度达到最优，下面就先分别介绍下这几种压缩方式。</p>
 </blockquote>
 <h3 id="质量压缩"><a href="#质量压缩" class="headerlink" title="质量压缩"></a>质量压缩</h3><p>设置bitmap options属性，降低图片的质量，像素不会减少，第一个参数为需要压缩的bitmap图片对象，第二个参数为压缩后图片保存的位置，设置options 属性0-100，来实现压缩</p>
-<pre><code>public static void compressImageToFile(Bitmap bmp,File file) {
-    // 0-100 100为不压缩
-    int options = 100; 
-    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    // 把压缩后的数据存放到baos中
-    bmp.compress(Bitmap.CompressFormat.JPEG, options, baos);
-    try {  
-        FileOutputStream fos = new FileOutputStream(file);  
-        fos.write(baos.toByteArray());  
-        fos.flush();  
-        fos.close();  
-    } catch (Exception e) {  
-        e.printStackTrace();  
-    } 
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compressImageToFile</span><span class="params">(Bitmap bmp,File file)</span> </span>&#123;</div><div class="line">	<span class="comment">// 0-100 100为不压缩</span></div><div class="line">	<span class="keyword">int</span> options = <span class="number">100</span>; </div><div class="line">	ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">	<span class="comment">// 把压缩后的数据存放到baos中</span></div><div class="line">	bmp.compress(Bitmap.CompressFormat.JPEG, options, baos);</div><div class="line">	<span class="keyword">try</span> &#123;  </div><div class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);  </div><div class="line">        fos.write(baos.toByteArray());  </div><div class="line">        fos.flush();  </div><div class="line">        fos.close();  </div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;  </div><div class="line">        e.printStackTrace();  </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/04/11/2016-04-11-Android/#more" rel="contents">
@@ -950,7 +1112,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -972,7 +1134,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1029,7 +1191,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -1119,13 +1281,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
 
   
     <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>

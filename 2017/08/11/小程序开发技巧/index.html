@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="资料相关官方API： https://mp.weixin.qq.com/debug/wxadoc/dev/index.html IDE下载： https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html CSS相关 水平布局  display: flex;  flex-direction: row;  垂直布局  display:">
+<meta name="description" content="资料相关官方API： https://mp.weixin.qq.com/debug/wxadoc/dev/index.html IDE下载： https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html CSS相关 水平布局  1234&amp;#123;display: flex; flex-direction: row;&amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序开发技巧">
 <meta property="og:url" content="http://yoursite.com/2017/08/11/小程序开发技巧/index.html">
 <meta property="og:site_name" content="Soaic&#39;s Blog">
-<meta property="og:description" content="资料相关官方API： https://mp.weixin.qq.com/debug/wxadoc/dev/index.html IDE下载： https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html CSS相关 水平布局  display: flex;  flex-direction: row;  垂直布局  display:">
+<meta property="og:description" content="资料相关官方API： https://mp.weixin.qq.com/debug/wxadoc/dev/index.html IDE下载： https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html CSS相关 水平布局  1234&amp;#123;display: flex; flex-direction: row;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-11T12:35:15.000Z">
+<meta property="og:updated_time" content="2017-08-17T18:02:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序开发技巧">
-<meta name="twitter:description" content="资料相关官方API： https://mp.weixin.qq.com/debug/wxadoc/dev/index.html IDE下载： https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html CSS相关 水平布局  display: flex;  flex-direction: row;  垂直布局  display:">
+<meta name="twitter:description" content="资料相关官方API： https://mp.weixin.qq.com/debug/wxadoc/dev/index.html IDE下载： https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html CSS相关 水平布局  1234&amp;#123;display: flex; flex-direction: row;&amp;#125;">
 
 
 
@@ -112,7 +112,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -349,76 +349,53 @@
 <h3 id="CSS相关"><a href="#CSS相关" class="headerlink" title="CSS相关"></a>CSS相关</h3><blockquote>
 <p>水平布局</p>
 </blockquote>
-<pre><code>display: flex; 
-flex-direction: row;
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex; </div><div class="line"><span class="attribute">flex-direction</span>: row;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>垂直布局</p>
 </blockquote>
-<pre><code>display: flex;
-flex-direction: column;
-</code></pre><a id="more"></a>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex;</div><div class="line"><span class="attribute">flex-direction</span>: column;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <blockquote>
 <p>左右居中</p>
 </blockquote>
-<pre><code>display: flex;
-flex-direction: row;
-align-items: center;
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex;</div><div class="line"><span class="attribute">flex-direction</span>: row;</div><div class="line"><span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>上下居中</p>
 </blockquote>
-<pre><code>display: flex;
-flex-direction: column;
-align-items: center;
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex;</div><div class="line"><span class="attribute">flex-direction</span>: column;</div><div class="line"><span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>水平布局上下左右居中</p>
 </blockquote>
-<pre><code>display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex;</div><div class="line"><span class="attribute">flex-direction</span>: row;</div><div class="line"><span class="attribute">align-items</span>: center;</div><div class="line"><span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>垂直布局上下左右居中</p>
 </blockquote>
-<pre><code>display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex;</div><div class="line"><span class="attribute">flex-direction</span>: column;</div><div class="line"><span class="attribute">align-items</span>: center;</div><div class="line"><span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>按钮角度设为0</p>
 </blockquote>
-<pre><code>button::after{
-    border-radius: 0px;
-}
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">button</span><span class="selector-pseudo">::after</span>&#123;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">0px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>设置全局字体样式和抗锯齿</p>
 </blockquote>
-<pre><code>page{
-    font: 14px/1.5 &quot;Microsoft YaHei&quot;,&quot;Microsoft YaHei UI&quot;, sans-serif; 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">page</span>&#123;</div><div class="line">    <span class="attribute">font</span>: <span class="number">14px</span>/<span class="number">1.5</span> <span class="string">"Microsoft YaHei"</span>,<span class="string">"Microsoft YaHei UI"</span>, sans-serif; </div><div class="line">    <span class="attribute">-webkit-font-smoothing</span>: antialiased;</div><div class="line">    <span class="attribute">-moz-osx-font-smoothing</span>: grayscale;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>小屏幕分辨率适配</p>
 </blockquote>
-<pre><code>@media only screen and (max-width:320px){
-    .phone_img{width: 45px; height: 30px;}
-}
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> only screen and (max-width:<span class="number">320px</span>)&#123;</div><div class="line">	<span class="selector-class">.phone_img</span>&#123;<span class="attribute">width</span>: <span class="number">45px</span>; <span class="attribute">height</span>: <span class="number">30px</span>;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>超过长度显示省略号</p>
 </blockquote>
-<pre><code>text-overflow:ellipsis; white-space:nowrap; overflow:hidden;
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attribute">text-overflow</span>:ellipsis; <span class="attribute">white-space</span>:nowrap; <span class="attribute">overflow</span>:hidden;&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>数字强制换行</p>
 </blockquote>
-<pre><code>word-wrap:break-word；
-</code></pre><blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attribute">word-wrap</span>:break-word；&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>悬浮层叠布局</p>
 </blockquote>
-<pre><code>1、z-index 重叠顺序属性 值为正整数值，数字越大对应对象层越浮上层
-2、position:relative和position:absolute设置对象属性为可定位（可重叠）
-3、left right top bottom绝对定位具体位置设置
-4、父控件必须为position:relative和position:absolute
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、z-index 重叠顺序属性 值为正整数值，数字越大对应对象层越浮上层</div><div class="line"><span class="number">2</span>、position:relative和position:absolute设置对象属性为可定位（可重叠）</div><div class="line"><span class="number">3</span>、left right top bottom绝对定位具体位置设置</div><div class="line"><span class="number">4</span>、父控件必须为position:relative和position:absolute</div></pre></td></tr></table></figure>
+<blockquote>
 <p>Html富文本解析展示</p>
 </blockquote>
 <p>使用wxParse第三方实现 </p>
@@ -426,21 +403,8 @@ justify-content: center;
 <h3 id="JS相关"><a href="#JS相关" class="headerlink" title="JS相关"></a>JS相关</h3><blockquote>
 <p>解决小程序5层页面限制</p>
 </blockquote>
-<pre><code>function intentPage(pageUrl){
-    var pageNum = getCurrentPages().length;
-    if (!isOptStrNull(pageUrl)){
-        if (pageNum &gt;= 5) {
-            wx.redirectTo({
-                url: pageUrl,
-            })
-        } else {
-            wx.navigateTo({
-                url: pageUrl,
-            })
-        }
-    }
-}
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">intentPage</span>(<span class="params">pageUrl</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> pageNum = getCurrentPages().length;</div><div class="line">    <span class="keyword">if</span> (!isOptStrNull(pageUrl))&#123;</div><div class="line">        <span class="keyword">if</span> (pageNum &gt;= <span class="number">5</span>) &#123;</div><div class="line">            wx.redirectTo(&#123;</div><div class="line">                url: pageUrl,</div><div class="line">            &#125;)</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            wx.navigateTo(&#123;</div><div class="line">                url: pageUrl,</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>页面间数据传递</p>
 </blockquote>
 <p>使用onfire.js第三方实现 类似Android中的EventBus 使用起来还是蛮方便的</p>
@@ -448,240 +412,29 @@ justify-content: center;
 <blockquote>
 <p>格式化时间戳</p>
 </blockquote>
-<pre><code>function formatTimeLong(times) {
-    if (times.length == 10) {
-        return formatTime(new Date(times * 1000));
-    } else if (times.length == 13) {
-        return formatTime(new Date(times));
-    }
-}
-function formatTime(date) {
-    var year = date.getFullYear()
-    var month = date.getMonth() + 1
-    var day = date.getDate()
-    var hour = date.getHours()
-    var minute = date.getMinutes()
-    var second = date.getSeconds()
-    return [year, month, day].map(formatNumber).join(&apos;-&apos;) + &apos; &apos; + [hour, minute, second].map(formatNumber).join(&apos;:&apos;)
-}
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatTimeLong</span>(<span class="params">times</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (times.length == <span class="number">10</span>) &#123;</div><div class="line">        <span class="keyword">return</span> formatTime(<span class="keyword">new</span> <span class="built_in">Date</span>(times * <span class="number">1000</span>));</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (times.length == <span class="number">13</span>) &#123;</div><div class="line">        <span class="keyword">return</span> formatTime(<span class="keyword">new</span> <span class="built_in">Date</span>(times));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatTime</span>(<span class="params">date</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> year = date.getFullYear()</div><div class="line">    <span class="keyword">var</span> month = date.getMonth() + <span class="number">1</span></div><div class="line">    <span class="keyword">var</span> day = date.getDate()</div><div class="line">    <span class="keyword">var</span> hour = date.getHours()</div><div class="line">    <span class="keyword">var</span> minute = date.getMinutes()</div><div class="line">    <span class="keyword">var</span> second = date.getSeconds()</div><div class="line">    <span class="keyword">return</span> [year, month, day].map(formatNumber).join(<span class="string">'-'</span>) + <span class="string">' '</span> + [hour, minute, second].map(formatNumber).join(<span class="string">':'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>判断一个属性是否为空</p>
 </blockquote>
-<pre><code>function isEmpty(str){
-    if (typeof (str) == &apos;undefined&apos; || str == null || str == &apos;&apos; || str == &apos;null&apos; || str == &apos;[]&apos; || str == &apos;{}&apos;) {
-        return true
-    } else {
-        return false;
-    }
-}
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> (str) == <span class="string">'undefined'</span> || str == <span class="literal">null</span> || str == <span class="string">''</span> || str == <span class="string">'null'</span> || str == <span class="string">'[]'</span> || str == <span class="string">'&#123;&#125;'</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>正则匹配手机号</p>
 </blockquote>
-<pre><code>function matchRegPhone(str) {
-    var reg = &quot;/[1][345789]\\d{9}/&quot;;
-    var result = reg.test(str);
-    reg.lastIndex = 0;
-    return result;
-}
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">matchRegPhone</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> reg = <span class="string">"/[1][345789]\\d&#123;9&#125;/"</span>;</div><div class="line">    <span class="keyword">var</span> result = reg.test(str);</div><div class="line">    reg.lastIndex = <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
 <p>网络请求封装工具类 netUtil.js</p>
 </blockquote>
-<pre><code>function RequestConfig(){
-    this.page;
-    this.url=&apos;&apos;;
-    this.params={};
-    this.netMethod=&apos;GET&apos;;
-    this.callback={
-        onPre: function(){},
-        onEnd: function(){},
-        onSuccess:function (data){},
-        onError : function(msgCanShow,code){}
-    };
-    this.callBack = function(event){
-        this.callback = event;
-        return this;
-    };
-    this.setPage = function(event){
-        this.page = event;
-        return this;
-    };
-    this.setUrl = function(event){
-        this.url = event;
-        return this;
-    };
-    this.setParams = function(event){
-        this.params = event;
-        return this;
-    };
-    this.post = function(){
-        this.netMethod = &apos;POST&apos;;
-        return this;
-    };
-    this.get = function(){
-        this.netMethod = &apos;GET&apos;;
-        return this;
-    };
-    this.send = function(){
-        request(this);
-    };
-}
-/** todo 
- 拷贝这段代码去用--RequestConfig里的callback
- onPre: function(){},
- onEnd: function(){},
- onSuccess:function (data){}
- onError : function(msgCanShow,code,hiddenMsg){}
-*/
-/**
- * 注意,此方法调用后还要调用.send()才是发送出去.
- * @returns {RequestConfig}
- */
-function getBuildRequest(){
-    return new RequestConfig();
-}  
-/**
- * 封装网络请求通用的处理: 参数拼接和结果处理
- * @constant 使用buildRequest().send()来发送请求
- * @param requestConfig
- */
-function request(requestConfig){
-    //请求前
-    if(util.isFunction(requestConfig.callback.onPre) ){
-        requestConfig.callback.onPre();
-    }
-    var url = requestConfig.url;
-    var body = requestConfig.params;
-    console.log(&quot;request data start-----&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;);
-    console.log(&quot;url=&quot; + url);
-    body = handlerCommonParams(body);
-    var contentType =&apos;application/json&apos;;
-    //post请求逻辑
-    if (requestConfig.netMethod ==&apos;POST&apos;){
-        body = util.json2Form(body);
-        contentType = &apos;application/x-www-form-urlencoded&apos;;
-    }
-    console.log(body);
-    console.log(&quot;method=&quot;+requestConfig.netMethod);
-    console.log(&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;-----request data end&quot;);
-    wx.request({
-        url: url,
-        method:requestConfig.netMethod,
-        header:{&apos;Content-Type&apos;:contentType},
-        data:body,
-        success: function(res) {
-            if(util.isFunction(requestConfig.callback.onEnd)){
-                requestConfig.callback.onEnd();//请求发出后
-            }
-            if (res.statusCode = 200) {
-                console.log(&quot;request success: &quot;+JSON.stringify(res.data));
-                requestConfig.callback.onSuccess(res.data);
-            }else if(res.statusCode &gt;= 500){
-                requestConfig.callback.onError(&quot;服务器异常！&quot;,res.statusCode);
-            }else if(res.statusCode &gt;= 400 &amp;&amp; res.statusCode &lt; 500){
-                requestConfig.callback.onError(&quot;没有找到内容&quot;,res.statusCode);
-            }else{
-                requestConfig.callback.onError(&quot;网络请求异常！&quot;,res.statusCode);
-            }
-        },
-        fail:function(res){
-            console.log(&quot;request fail: &quot;+JSON.stringify(res));
-            if( util.isFunction(requestConfig.callback.onEnd) ){
-                requestConfig.callback.onEnd();//请求发出前
-            }
-            requestConfig.callback.onError(&quot;网络请求异常！&quot;,res.statusCode);
-        }
-    })
-}
-/**
- * 处理公共参数
- * unionid
- * wechatid
- * timestamp
- * entry
- * uid
- */
-function handlerCommonParams(body){
-    return body;
-}
-/**
- * json转表单
- */
-function json2Form(json) {
-    var str = [];
-    for (var p in json) {
-        str.push(encodeURIComponent(p) + &quot;=&quot; + encodeURIComponent(json[p]));
-    }
-    return str.join(&quot;&amp;&quot;);
-}
-/**
- * 是否是方法
- */
-function isFunction(value) {
-    if (typeof (value) == &quot;function&quot;) {
-        return true;
-    } else {
-        return false;
-    }
-}
-module.exports = {
-    getBuildRequest:getBuildRequest
-};
-</code></pre><p>DEMO:</p>
-<pre><code>const netUtil = require(&quot;utils/netUtil.js&quot;);
-var params = {};
-netUtil.getBuildRequest()
-    .get() //post()
-    .setUrl(url)
-    .setParams(params)
-    .callBack({
-        onPre: function () {
-        },
-        onEnd: function () {
-        },
-        onSuccess: function (data) {
-        },
-        onError: function (msgCanShow, code) {
-        }
-    }).send();
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">RequestConfig</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.page;</div><div class="line">    <span class="keyword">this</span>.url=<span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.params=&#123;&#125;;</div><div class="line">    <span class="keyword">this</span>.netMethod=<span class="string">'GET'</span>;</div><div class="line">    <span class="keyword">this</span>.callback=&#123;</div><div class="line">        onPre: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">        onEnd: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">        onSuccess:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>)</span>&#123;&#125;,</div><div class="line">        onError : <span class="function"><span class="keyword">function</span>(<span class="params">msgCanShow,code</span>)</span>&#123;&#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">this</span>.callBack = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.callback = event;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">this</span>.setPage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.page = event;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">this</span>.setUrl = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.url = event;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">this</span>.setParams = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.params = event;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">this</span>.post = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.netMethod = <span class="string">'POST'</span>;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">this</span>.get = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.netMethod = <span class="string">'GET'</span>;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">this</span>.send = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        request(<span class="keyword">this</span>);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="comment">/** todo </span></div><div class="line"><span class="comment"> 拷贝这段代码去用--RequestConfig里的callback</span></div><div class="line"><span class="comment"> onPre: function()&#123;&#125;,</span></div><div class="line"><span class="comment"> onEnd: function()&#123;&#125;,</span></div><div class="line"><span class="comment"> onSuccess:function (data)&#123;&#125;</span></div><div class="line"><span class="comment"> onError : function(msgCanShow,code,hiddenMsg)&#123;&#125;</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 注意,此方法调用后还要调用.send()才是发送出去.</span></div><div class="line"><span class="comment"> * @returns &#123;RequestConfig&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBuildRequest</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> RequestConfig();</div><div class="line">&#125;  </div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 封装网络请求通用的处理: 参数拼接和结果处理</span></div><div class="line"><span class="comment"> * @constant 使用buildRequest().send()来发送请求</span></div><div class="line"><span class="comment"> * @param requestConfig</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">requestConfig</span>)</span>&#123;</div><div class="line">    <span class="comment">//请求前</span></div><div class="line">    <span class="keyword">if</span>(util.isFunction(requestConfig.callback.onPre) )&#123;</div><div class="line">        requestConfig.callback.onPre();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> url = requestConfig.url;</div><div class="line">    <span class="keyword">var</span> body = requestConfig.params;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"request data start-----&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"url="</span> + url);</div><div class="line">    body = handlerCommonParams(body);</div><div class="line">    <span class="keyword">var</span> contentType =<span class="string">'application/json'</span>;</div><div class="line">    <span class="comment">//post请求逻辑</span></div><div class="line">    <span class="keyword">if</span> (requestConfig.netMethod ==<span class="string">'POST'</span>)&#123;</div><div class="line">        body = util.json2Form(body);</div><div class="line">        contentType = <span class="string">'application/x-www-form-urlencoded'</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(body);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"method="</span>+requestConfig.netMethod);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;-----request data end"</span>);</div><div class="line">    wx.request(&#123;</div><div class="line">        url: url,</div><div class="line">        method:requestConfig.netMethod,</div><div class="line">        header:&#123;<span class="string">'Content-Type'</span>:contentType&#125;,</div><div class="line">        data:body,</div><div class="line">        success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span>(util.isFunction(requestConfig.callback.onEnd))&#123;</div><div class="line">                requestConfig.callback.onEnd();<span class="comment">//请求发出后</span></div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (res.statusCode = <span class="number">200</span>) &#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">"request success: "</span>+<span class="built_in">JSON</span>.stringify(res.data));</div><div class="line">                requestConfig.callback.onSuccess(res.data);</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(res.statusCode &gt;= <span class="number">500</span>)&#123;</div><div class="line">                requestConfig.callback.onError(<span class="string">"服务器异常！"</span>,res.statusCode);</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(res.statusCode &gt;= <span class="number">400</span> &amp;&amp; res.statusCode &lt; <span class="number">500</span>)&#123;</div><div class="line">                requestConfig.callback.onError(<span class="string">"没有找到内容"</span>,res.statusCode);</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                requestConfig.callback.onError(<span class="string">"网络请求异常！"</span>,res.statusCode);</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        fail:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"request fail: "</span>+<span class="built_in">JSON</span>.stringify(res));</div><div class="line">            <span class="keyword">if</span>( util.isFunction(requestConfig.callback.onEnd) )&#123;</div><div class="line">                requestConfig.callback.onEnd();<span class="comment">//请求发出前</span></div><div class="line">            &#125;</div><div class="line">            requestConfig.callback.onError(<span class="string">"网络请求异常！"</span>,res.statusCode);</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 处理公共参数</span></div><div class="line"><span class="comment"> * unionid</span></div><div class="line"><span class="comment"> * wechatid</span></div><div class="line"><span class="comment"> * timestamp</span></div><div class="line"><span class="comment"> * entry</span></div><div class="line"><span class="comment"> * uid</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerCommonParams</span>(<span class="params">body</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> body;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * json转表单</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">json2Form</span>(<span class="params">json</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> str = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> p <span class="keyword">in</span> json) &#123;</div><div class="line">        str.push(<span class="built_in">encodeURIComponent</span>(p) + <span class="string">"="</span> + <span class="built_in">encodeURIComponent</span>(json[p]));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> str.join(<span class="string">"&amp;"</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 是否是方法</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFunction</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> (value) == <span class="string">"function"</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    getBuildRequest:getBuildRequest</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>DEMO:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> netUtil = <span class="built_in">require</span>(<span class="string">"utils/netUtil.js"</span>);</div><div class="line"><span class="keyword">var</span> params = &#123;&#125;;</div><div class="line">netUtil.getBuildRequest()</div><div class="line">    .get() <span class="comment">//post()</span></div><div class="line">    .setUrl(url)</div><div class="line">    .setParams(params)</div><div class="line">    .callBack(&#123;</div><div class="line">        onPre: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        &#125;,</div><div class="line">        onEnd: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        &#125;,</div><div class="line">        onSuccess: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">        &#125;,</div><div class="line">        onError: <span class="function"><span class="keyword">function</span> (<span class="params">msgCanShow, code</span>) </span>&#123;</div><div class="line">        &#125;</div><div class="line">    &#125;).send();</div></pre></td></tr></table></figure>
+<blockquote>
 <p>小程序跳转同一个页面两次以上，同一个页面同时存在多个时，前一个页面的全局变量都会被后一个页面所覆盖</p>
 </blockquote>
 <p>解决办法：不要使用全局变量，可以存数据到page的data里使用this.data,而不要使用初始化的that</p>
 <blockquote>
 <p>权限获取失败处理</p>
 </blockquote>
-<pre><code>if (wx.canIUse(&quot;openSetting&quot;)) {
-    wx.showModal({
-        showCancel: true,
-        title: &apos;小程序需要你的允许才能正常使用&apos;,
-        content: &apos;请点击“去设置”并勾选“用户信息”，然后确定即可正常使用&apos;,
-        confirmText: &apos;去设置&apos;,
-        confirmColor: &apos;#007aff&apos;,
-        success: function (res) {
-            if (res.confirm) {
-                wx.openSetting({
-                    success: (res) =&gt; {
-
-                    }
-                })
-            } else if (res.cancel) {
-                //wx.navigateBack();
-            }
-        }
-    })
-} else {
-    wx.showModal({
-        content: &apos;您未授权获取资料，如需继续使用请删除小程序后重新使用并授权&apos;,
-        confirmColor: &apos;#007aff&apos;,
-        showCancel: false,
-        success: function (res) {
-            if (res.confirm) {
-
-            }
-        }
-    })
-}
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (wx.canIUse(<span class="string">"openSetting"</span>)) &#123;</div><div class="line">    wx.showModal(&#123;</div><div class="line">        showCancel: <span class="literal">true</span>,</div><div class="line">        title: <span class="string">'小程序需要你的允许才能正常使用'</span>,</div><div class="line">        content: <span class="string">'请点击“去设置”并勾选“用户信息”，然后确定即可正常使用'</span>,</div><div class="line">        confirmText: <span class="string">'去设置'</span>,</div><div class="line">        confirmColor: <span class="string">'#007aff'</span>,</div><div class="line">        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (res.confirm) &#123;</div><div class="line">                wx.openSetting(&#123;</div><div class="line">                    success: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">                        </div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.cancel) &#123;</div><div class="line">                <span class="comment">//wx.navigateBack();</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    wx.showModal(&#123;</div><div class="line">        content: <span class="string">'您未授权获取资料，如需继续使用请删除小程序后重新使用并授权'</span>,</div><div class="line">        confirmColor: <span class="string">'#007aff'</span>,</div><div class="line">        showCancel: <span class="literal">false</span>,</div><div class="line">        success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (res.confirm) &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -714,6 +467,10 @@ netUtil.getBuildRequest()
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/18/小程序接入LeanCloud学习笔记/" rel="prev" title="小程序接入LeanCloud学习笔记">
+                小程序接入LeanCloud学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -790,7 +547,7 @@ netUtil.getBuildRequest()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -812,7 +569,7 @@ netUtil.getBuildRequest()
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -885,7 +642,7 @@ netUtil.getBuildRequest()
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -975,13 +732,6 @@ netUtil.getBuildRequest()
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>

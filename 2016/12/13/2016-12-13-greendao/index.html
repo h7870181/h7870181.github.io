@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Soaic&#39;s Blog">
 <meta property="og:description" content="简介greendao是一个开源的Android开发ORM使SQLite数据库，可以减轻和节省开发时间的同时处理低级别的数据库需求。SQLite是一个很好的嵌入式关系数据库，不过写SQL解析查询结果是相当繁琐和耗时的，greendao可以让你利用java对象来映射到数据库表便捷的使用Java面相对象的API来处理增、删、改、查的操作。 特点 性能大（貌似是Android最快的ORM） 易用性高 内存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-10T14:41:10.000Z">
+<meta property="og:updated_time" content="2017-08-17T17:54:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你必须了解的ORM框架GreenDao">
 <meta name="twitter:description" content="简介greendao是一个开源的Android开发ORM使SQLite数据库，可以减轻和节省开发时间的同时处理低级别的数据库需求。SQLite是一个很好的嵌入式关系数据库，不过写SQL解析查询结果是相当繁琐和耗时的，greendao可以让你利用java对象来映射到数据库表便捷的使用Java面相对象的API来处理增、删、改、查的操作。 特点 性能大（貌似是Android最快的ORM） 易用性高 内存">
@@ -113,7 +113,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
@@ -382,135 +382,17 @@
 <li>github：<a href="https://github.com/greenrobot/greenDAO" target="_blank" rel="external">https://github.com/greenrobot/greenDAO</a></li>
 </ol>
 <h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>在build.gradle中配置</p>
-<pre><code>apply plugin: &apos;com.android.library&apos;  
-//应用greendao插件
-apply plugin: &apos;org.greenrobot.greendao&apos;        
-
-android {
-    compileSdkVersion 25
-    buildToolsVersion &quot;25.0.0&quot;
-    defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName &quot;1.0&quot;
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;
-        }
-    }
-}
-
-//greendao相关配置
-greendao {
-    schemaVersion 1                 //数据库版本号
-    daoPackage &apos;com.greendao.dao&apos;    //greendao自动生成的dao文件包名
-    targetGenDir &apos;src/main/java&apos;    //greendao自动生成的目标文件夹
-}
-
-//从maven中下载greendao插件
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath &apos;org.greenrobot:greendao-gradle-plugin:3.2.0&apos;
-    }
-}
-
-//添加greendao需要的编译环境
-dependencies {
-    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
-    compile &apos;com.android.support:appcompat-v7:25.0.0&apos;
-    compile &apos;com.android.support:recyclerview-v7:25.0.0&apos;
-    compile &apos;org.greenrobot:greendao:3.2.0&apos;
-    compile &apos;org.greenrobot:greendao-generator:3.2.0&apos;
-    compile &apos;io.reactivex:rxandroid:1.2.1&apos;
-    compile &apos;io.reactivex:rxjava:1.1.6&apos;
-}
-</code></pre><p>然后点击Sync Project with Gradle Files按钮下载编译环境，等待下载完成，环境配置就OK了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">apply plugin: <span class="string">'com.android.library'</span>  </div><div class="line"><span class="comment">//应用greendao插件</span></div><div class="line">apply plugin: <span class="string">'org.greenrobot.greendao'</span>        </div><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.0"</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">        versionCode <span class="number">1</span></div><div class="line">        versionName <span class="string">"1.0"</span></div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled <span class="literal">false</span></div><div class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//greendao相关配置</span></div><div class="line">greendao &#123;</div><div class="line">    schemaVersion <span class="number">1</span>                 <span class="comment">//数据库版本号</span></div><div class="line">    daoPackage <span class="string">'com.greendao.dao'</span>    <span class="comment">//greendao自动生成的dao文件包名</span></div><div class="line">    targetGenDir <span class="string">'src/main/java'</span>    <span class="comment">//greendao自动生成的目标文件夹</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//从maven中下载greendao插件</span></div><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        mavenCentral()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'org.greenrobot:greendao-gradle-plugin:3.2.0'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//添加greendao需要的编译环境</span></div><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: <span class="string">'libs'</span>, <span class="attr">include</span>: [<span class="string">'*.jar'</span>])</div><div class="line">    compile <span class="string">'com.android.support:appcompat-v7:25.0.0'</span></div><div class="line">    compile <span class="string">'com.android.support:recyclerview-v7:25.0.0'</span></div><div class="line">    compile <span class="string">'org.greenrobot:greendao:3.2.0'</span></div><div class="line">    compile <span class="string">'org.greenrobot:greendao-generator:3.2.0'</span></div><div class="line">    compile <span class="string">'io.reactivex:rxandroid:1.2.1'</span></div><div class="line">    compile <span class="string">'io.reactivex:rxjava:1.1.6'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后点击Sync Project with Gradle Files按钮下载编译环境，等待下载完成，环境配置就OK了。</p>
 <h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>GreenDao3.0以后开始用注解配置数据表，使用起来非常快捷方便，下面代码简单的配置了User表，表里面有id和name两个字段</p>
-<pre><code>@Entity
-public class User{
-    @Id
-    private Long id;
-
-    @NotNull
-    private String name;
-}
-</code></pre><p>然后用Build里面的Make Project或Make Module来自动生成相关DAO类和get set方法，完成之后，在我们定义好的com.greendao.dao包下也会多出DaoMaster、DaoSession、UserDao三个类，代码这里就不贴出来了，User实体会生成如下：</p>
-<pre><code>@Entity
-public class User{
-
-    @Id
-    private Long id;
-
-    @NotNull
-    private String name;
-
-    @Generated(hash = 1709734220)
-    public User(Long id, @NotNull String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    @Generated(hash = 586692638)
-    public User() {
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-}
-</code></pre><p><b>数据表注解@Entity的详细配置</b></p>
-<pre><code>@Entity(
-    // 目前还不是很清楚这个字段的功能和意义
-    schema = &quot;myschema&quot;,
-
-    // 是否需要更新、删除属性和刷新方法，默认为true
-    active = true,
-
-    //指定数据库中的表的名称。默认是实体类的名称。
-    nameInDb = &quot;AWESOME_USERS&quot;,
-
-    // 定义跨越多个列的索引。
-    indexes = {
-            @Index(value = &quot;name DESC&quot;, unique = true)
-    },
-
-    // 默认为true,创建数据表，如果有多个实体映射到一个表或表创建在greenDao之外，则设置false
-    createInDb = false,
-
-    // 是否生成一个所有属性的构造函数，无参构造函数默认生成
-    generateConstructors = true,
-
-    // 是否自动生成get和set方法
-    generateGettersSetters = true
-)
-public class User {
-  ...
-}
-</code></pre><p>注意：如果定义了 schema=”myschema”，会报如下错误，具体解决方法暂时还没找到，有知道的小伙伴可以留言告知一下哦</p>
-<pre><code>* What went wrong:
-Execution failed for task &apos;:greendaolibrary:greendao&apos;.
-&gt; Undefined schema \&quot;myschema\&quot; (referenced in entities: User).
-Please, define non-default schemas explicitly inside build.gradle
-</code></pre><p><b>各个字段的详细注解</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</div><div class="line">    <span class="meta">@Id</span></div><div class="line">    <span class="keyword">private</span> Long id;</div><div class="line"></div><div class="line">    <span class="meta">@NotNull</span></div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后用Build里面的Make Project或Make Module来自动生成相关DAO类和get set方法，完成之后，在我们定义好的com.greendao.dao包下也会多出DaoMaster、DaoSession、UserDao三个类，代码这里就不贴出来了，User实体会生成如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Id</span></div><div class="line">    <span class="keyword">private</span> Long id;</div><div class="line">    </div><div class="line">    <span class="meta">@NotNull</span></div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">    <span class="meta">@Generated</span>(hash = <span class="number">1709734220</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(Long id, @NotNull String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Generated</span>(hash = <span class="number">586692638</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><b>数据表注解@Entity的详细配置</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span>(</div><div class="line">    <span class="comment">// 目前还不是很清楚这个字段的功能和意义</span></div><div class="line">    schema = <span class="string">"myschema"</span>,</div><div class="line">    </div><div class="line">    <span class="comment">// 是否需要更新、删除属性和刷新方法，默认为true</span></div><div class="line">    active = <span class="keyword">true</span>,</div><div class="line">    </div><div class="line">    <span class="comment">//指定数据库中的表的名称。默认是实体类的名称。</span></div><div class="line">    nameInDb = <span class="string">"AWESOME_USERS"</span>,</div><div class="line">    </div><div class="line">    <span class="comment">// 定义跨越多个列的索引。</span></div><div class="line">    indexes = &#123;</div><div class="line">            <span class="meta">@Index</span>(value = <span class="string">"name DESC"</span>, unique = <span class="keyword">true</span>)</div><div class="line">    &#125;,</div><div class="line">    </div><div class="line">    <span class="comment">// 默认为true,创建数据表，如果有多个实体映射到一个表或表创建在greenDao之外，则设置false</span></div><div class="line">    createInDb = <span class="keyword">false</span>,</div><div class="line"></div><div class="line">    <span class="comment">// 是否生成一个所有属性的构造函数，无参构造函数默认生成</span></div><div class="line">    generateConstructors = <span class="keyword">true</span>,</div><div class="line"></div><div class="line">    <span class="comment">// 是否自动生成get和set方法</span></div><div class="line">    generateGettersSetters = <span class="keyword">true</span></div><div class="line">)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：如果定义了 schema=”myschema”，会报如下错误，具体解决方法暂时还没找到，有知道的小伙伴可以留言告知一下哦</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* What went wrong:</div><div class="line">Execution failed <span class="keyword">for</span> task <span class="string">':greendaolibrary:greendao'</span>.</div><div class="line">&gt; Undefined schema \<span class="string">"myschema\" (referenced in entities: User).</span></div><div class="line"><span class="string">Please, define non-default schemas explicitly inside build.gradle</span></div></pre></td></tr></table></figure>
+<p><b>各个字段的详细注解</b></p>
 <p><code>@Id</code> 主键ID注解，属性一般long或Long来定义，如果要设该字段为自增属性，那么可以定义为<code>@Id(autoincrement = true)</code></p>
 <p><code>@Property</code> 字段名定义注解，<code>@Property(nameInDb = &quot;USER_NAME&quot;)</code>，默认是驼峰法代替下划线，所有字母大写，如 customName 变成 CUSTOM_NAME</p>
 <p><code>@NotNull</code> 字段不能为空注解</p>
@@ -518,211 +400,18 @@ Please, define non-default schemas explicitly inside build.gradle
 <p><code>@Index</code> 字段定义为索引注解，<code>@Index(unique = true)</code>索引添加唯一约束，<code>@Index(name = &quot;indexName&quot;)</code>定义索引名</p>
 <p><code>@Unique</code> 字段定义唯一约束注解，并会创建索引</p>
 <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>定义<code>DbCore.java</code>类来获取全局唯一的<code>DaoSession</code>对象，代码如下：</p>
-<pre><code>public class DbCore {
-    private static final String DEFAULT_DB_NAME = &quot;green_dao.db&quot;;
-    private static DaoMaster daoMaster;
-    private static DaoSession daoSession;
-
-    private static Context mContext;
-    private static String DB_NAME;
-
-    public static void init(Context context) {
-        init(context, DEFAULT_DB_NAME);
-    }
-
-    public static void init(Context context,String dbName) {
-        if (context == null) {
-            throw new IllegalArgumentException(&quot;context can&apos;t be null&quot;);
-        }
-        mContext = context.getApplicationContext();
-        DB_NAME = dbName;
-    }
-
-    public static DaoMaster getDaoMaster() {
-        if (daoMaster == null) {
-            OnlineOpenHelper helper = new OnlineOpenHelper(mContext, DB_NAME, null);
-            daoMaster = new DaoMaster(helper.getWritableDatabase());
-        }
-        return daoMaster;
-    }
-
-    public static DaoSession getDaoSession() {
-        if (daoSession == null) {
-            if (daoMaster == null) {
-                daoMaster = getDaoMaster();
-            }
-            daoSession = daoMaster.newSession();
-        }
-        return daoSession;
-    }
-
-    public static void enableQueryBuilderLog(){
-        QueryBuilder.LOG_SQL = true;
-        QueryBuilder.LOG_VALUES = true;
-    }
-}
-</code></pre><p>OnlineOpenHelper升级帮助类</p>
-<pre><code>public class OnlineOpenHelper extends DaoMaster.OpenHelper{
-    public OnlineOpenHelper(Context context,String name) {
-        super(context, name);
-    }
-
-    public OnlineOpenHelper(Context context,String name,SQLiteDatabase.CursorFactory factory) {
-        super(context, name, factory);
-    }
-
-    @Override
-    public void onUpgrade(Database db,int oldVersion,int newVersion) {
-        Log.i(&quot;greenDAO&quot;, &quot;Upgrading schema from version &quot; + oldVersion + &quot; to &quot; + newVersion );
-    }
-}
-</code></pre><p>需在<code>在application</code>中初始化</p>
-<pre><code>DbCore.init(this);                 //初始化GreenDao
-DbCore.enableQueryBuilderLog();    //打印sql语句日志
-</code></pre><p>封装所有的增删改查、获取Dao、获取RxDao、获取QueryBuilder等方法 到<code>BaseService.java</code>中</p>
-<pre><code>public class BaseService&lt;T, K&gt;{
-    private AbstractDao&lt;T, K&gt; mDao;
-
-    public BaseService(AbstractDao dao) {
-        mDao = dao;
-    }
-
-    public void save(T item) {
-        mDao.insert(item);
-    }
-
-    public void save(T... items) {
-        mDao.insertInTx(items);
-    }
-
-    public void save(List&lt;T&gt; items) {
-        mDao.insertInTx(items);
-    }
-
-    public void saveOrUpdate(T item) {
-        mDao.insertOrReplace(item);
-    }
-
-    public void saveOrUpdate(T... items) {
-        mDao.insertOrReplaceInTx(items);
-    }
-
-    public void saveOrUpdate(List&lt;T&gt; items) {
-        mDao.insertOrReplaceInTx(items);
-    }
-
-    public void deleteByKey(K key) {
-        mDao.deleteByKey(key);
-    }
-
-    public void delete(T item) {
-        mDao.delete(item);
-    }
-
-    public void delete(T... items) {
-        mDao.deleteInTx(items);
-    }
-
-    public void delete(List&lt;T&gt; items) {
-        mDao.deleteInTx(items);
-    }
-
-    public void deleteAll() {
-        mDao.deleteAll();
-    }
-
-    public void update(T item) {
-        mDao.update(item);
-    }
-
-    public void update(T... items) {
-        mDao.updateInTx(items);
-    }
-
-    public void update(List&lt;T&gt; items) {
-        mDao.updateInTx(items);
-    }
-
-    public  T query(K key) {
-        return  mDao.load(key);
-    }
-
-    public List&lt;T&gt; queryAll() {
-        return mDao.loadAll();
-    }
-
-    public List&lt;T&gt; query(String where,String... params) {
-
-        return mDao.queryRaw(where, params);
-    }
-
-    public QueryBuilder&lt;T&gt; queryBuilder() {
-
-        return mDao.queryBuilder();
-    }
-
-    public long count() {
-        return mDao.count();
-    }
-
-    public void refresh(T item) {
-        mDao.refresh(item);
-
-    }
-
-    public void detach(T item) {
-        mDao.detach(item);
-    }
-
-    public AbstractDao getDao(){
-        return mDao;
-    }
-
-    public RxDao&lt;T,K&gt; getRxDao(){
-        return  mDao.rx();
-    }
-
-    public QueryBuilder&lt;T&gt; getQueryBuilder(){
-        return  mDao.queryBuilder();
-    }
-
-}
-</code></pre><p>封装<code>User</code>表的所有操作到<code>UserService.java</code>类中，如后面有多个表，则只需简单继承<code>BaseService</code>如下即可，后面，所有相关User操作只需通过<code>UserService.getInstance()</code>来实现所有操作</p>
-<pre><code>public class UserService extends BaseService&lt;User,Long&gt;{
-
-    public UserService() {
-        super(DbCore.getDaoSession().getUserDao());
-    }
-
-    public static UserService getInstance(){
-        return SingleLoader.INSTANCE;
-    }
-
-    private static class SingleLoader{
-        final static UserService INSTANCE = new UserService();
-    }
-
-}
-</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><b>增</b></p>
-<pre><code>public void insert(){
-    String userName = user_name.getText().toString();
-    if(TextUtils.isEmpty(userName)){
-       return; 
-    }
-    User user = new User(null,userName);
-
-    //UserService.getInstance().save(user);                 //方式一
-    //UserService.getInstance().getDao().save(user);        //方式二
-    UserService.getInstance().getRxDao().insert(user)        //方式三 Rx模式
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Action1&lt;User&gt;() {
-                @Override
-                public void call(User note) {
-                    search();
-                }
-            });
-}
-</code></pre><p><b>删</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DbCore</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_DB_NAME = <span class="string">"green_dao.db"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DaoMaster daoMaster;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DaoSession daoSession;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Context mContext;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String DB_NAME;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        init(context, DEFAULT_DB_NAME);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context,String dbName)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (context == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"context can't be null"</span>);</div><div class="line">        &#125;</div><div class="line">        mContext = context.getApplicationContext();</div><div class="line">        DB_NAME = dbName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DaoMaster <span class="title">getDaoMaster</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (daoMaster == <span class="keyword">null</span>) &#123;</div><div class="line">            OnlineOpenHelper helper = <span class="keyword">new</span> OnlineOpenHelper(mContext, DB_NAME, <span class="keyword">null</span>);</div><div class="line">            daoMaster = <span class="keyword">new</span> DaoMaster(helper.getWritableDatabase());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> daoMaster;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DaoSession <span class="title">getDaoSession</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (daoSession == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (daoMaster == <span class="keyword">null</span>) &#123;</div><div class="line">                daoMaster = getDaoMaster();</div><div class="line">            &#125;</div><div class="line">            daoSession = daoMaster.newSession();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> daoSession;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">enableQueryBuilderLog</span><span class="params">()</span></span>&#123;</div><div class="line">        QueryBuilder.LOG_SQL = <span class="keyword">true</span>;</div><div class="line">        QueryBuilder.LOG_VALUES = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>OnlineOpenHelper升级帮助类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnlineOpenHelper</span> <span class="keyword">extends</span> <span class="title">DaoMaster</span>.<span class="title">OpenHelper</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OnlineOpenHelper</span><span class="params">(Context context,String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, name);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OnlineOpenHelper</span><span class="params">(Context context,String name,SQLiteDatabase.CursorFactory factory)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, name, factory);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(Database db,<span class="keyword">int</span> oldVersion,<span class="keyword">int</span> newVersion)</span> </span>&#123;</div><div class="line">        Log.i(<span class="string">"greenDAO"</span>, <span class="string">"Upgrading schema from version "</span> + oldVersion + <span class="string">" to "</span> + newVersion );</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需在<code>在application</code>中初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DbCore.init(<span class="keyword">this</span>);                 <span class="comment">//初始化GreenDao</span></div><div class="line">DbCore.enableQueryBuilderLog();    <span class="comment">//打印sql语句日志</span></div></pre></td></tr></table></figure>
+<p>封装所有的增删改查、获取Dao、获取RxDao、获取QueryBuilder等方法 到<code>BaseService.java</code>中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseService</span>&lt;<span class="title">T</span>, <span class="title">K</span>&gt;</span>&#123;</div><div class="line">    <span class="keyword">private</span> AbstractDao&lt;T, K&gt; mDao;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseService</span><span class="params">(AbstractDao dao)</span> </span>&#123;</div><div class="line">        mDao = dao;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(T item)</span> </span>&#123;</div><div class="line">        mDao.insert(item);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(T... items)</span> </span>&#123;</div><div class="line">        mDao.insertInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(List&lt;T&gt; items)</span> </span>&#123;</div><div class="line">        mDao.insertInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveOrUpdate</span><span class="params">(T item)</span> </span>&#123;</div><div class="line">        mDao.insertOrReplace(item);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveOrUpdate</span><span class="params">(T... items)</span> </span>&#123;</div><div class="line">        mDao.insertOrReplaceInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveOrUpdate</span><span class="params">(List&lt;T&gt; items)</span> </span>&#123;</div><div class="line">        mDao.insertOrReplaceInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteByKey</span><span class="params">(K key)</span> </span>&#123;</div><div class="line">        mDao.deleteByKey(key);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(T item)</span> </span>&#123;</div><div class="line">        mDao.delete(item);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(T... items)</span> </span>&#123;</div><div class="line">        mDao.deleteInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(List&lt;T&gt; items)</span> </span>&#123;</div><div class="line">        mDao.deleteInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteAll</span><span class="params">()</span> </span>&#123;</div><div class="line">        mDao.deleteAll();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(T item)</span> </span>&#123;</div><div class="line">        mDao.update(item);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(T... items)</span> </span>&#123;</div><div class="line">        mDao.updateInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(List&lt;T&gt; items)</span> </span>&#123;</div><div class="line">        mDao.updateInTx(items);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span>  T <span class="title">query</span><span class="params">(K key)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span>  mDao.load(key);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;T&gt; <span class="title">queryAll</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mDao.loadAll();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;T&gt; <span class="title">query</span><span class="params">(String where,String... params)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mDao.queryRaw(where, params);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> QueryBuilder&lt;T&gt; <span class="title">queryBuilder</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mDao.queryBuilder();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">count</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mDao.count();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">refresh</span><span class="params">(T item)</span> </span>&#123;</div><div class="line">        mDao.refresh(item);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detach</span><span class="params">(T item)</span> </span>&#123;</div><div class="line">        mDao.detach(item);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> AbstractDao <span class="title">getDao</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> mDao;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> RxDao&lt;T,K&gt; <span class="title">getRxDao</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span>  mDao.rx();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> QueryBuilder&lt;T&gt; <span class="title">getQueryBuilder</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span>  mDao.queryBuilder();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>封装<code>User</code>表的所有操作到<code>UserService.java</code>类中，如后面有多个表，则只需简单继承<code>BaseService</code>如下即可，后面，所有相关User操作只需通过<code>UserService.getInstance()</code>来实现所有操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> <span class="keyword">extends</span> <span class="title">BaseService</span>&lt;<span class="title">User</span>,<span class="title">Long</span>&gt;</span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserService</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(DbCore.getDaoSession().getUserDao());</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> UserService <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> SingleLoader.INSTANCE;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleLoader</span></span>&#123;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">static</span> UserService INSTANCE = <span class="keyword">new</span> UserService();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><b>增</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span></span>&#123;</div><div class="line">    String userName = user_name.getText().toString();</div><div class="line">    <span class="keyword">if</span>(TextUtils.isEmpty(userName))&#123;</div><div class="line">       <span class="keyword">return</span>; </div><div class="line">    &#125;</div><div class="line">    User user = <span class="keyword">new</span> User(<span class="keyword">null</span>,userName);</div><div class="line"></div><div class="line">    <span class="comment">//UserService.getInstance().save(user);                 //方式一</span></div><div class="line">    <span class="comment">//UserService.getInstance().getDao().save(user);        //方式二</span></div><div class="line">    UserService.getInstance().getRxDao().insert(user)        <span class="comment">//方式三 Rx模式</span></div><div class="line">            .observeOn(AndroidSchedulers.mainThread())</div><div class="line">            .subscribe(<span class="keyword">new</span> Action1&lt;User&gt;() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(User note)</span> </span>&#123;</div><div class="line">                    search();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><b>删</b></p>
 <pre><code>public void delete(){
     if(mDatas.size()&lt;=0){
         return;
@@ -740,230 +429,21 @@ DbCore.enableQueryBuilderLog();    //打印sql语句日志
             });
 }
 </code></pre><p><b>改</b></p>
-<pre><code>public void update(){
-    String userName = user_name.getText().toString();
-    if(TextUtils.isEmpty(userName)){
-        return;
-    }
-    User user = mDatas.get(0);
-    user.setName(userName);
-    //UserService.getInstance().update(user);
-    //UserService.getInstance().getDao().update(user);
-    UserService.getInstance().getRxDao().update(user)
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Action1&lt;User&gt;(){
-                @Override
-                public void call(User user){
-                    search();
-                }
-            });
-}
-</code></pre><p><b>查</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>&#123;</div><div class="line">    String userName = user_name.getText().toString();</div><div class="line">    <span class="keyword">if</span>(TextUtils.isEmpty(userName))&#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    User user = mDatas.get(<span class="number">0</span>);</div><div class="line">    user.setName(userName);</div><div class="line">    <span class="comment">//UserService.getInstance().update(user);</span></div><div class="line">    <span class="comment">//UserService.getInstance().getDao().update(user);</span></div><div class="line">    UserService.getInstance().getRxDao().update(user)</div><div class="line">            .observeOn(AndroidSchedulers.mainThread())</div><div class="line">            .subscribe(<span class="keyword">new</span> Action1&lt;User&gt;()&#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(User user)</span></span>&#123;</div><div class="line">                    search();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><b>查</b></p>
 <p>ID降序查询所有数据</p>
-<pre><code>public void search() {
-    //List&lt;User&gt; users = UserService.getInstance().getQueryBuilder().orderDesc(UserDao.Properties.Id).build().list();
-    UserService.getInstance().getQueryBuilder().orderDesc(UserDao.Properties.Id).rx().list()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Action1&lt;List&lt;User&gt;&gt;(){
-                @Override
-                public void call(List&lt;User&gt; users){
-                    mDatas.clear();
-                    for(int i = 0;i&lt;users.size();i++){
-                        User user = users.get(i);
-                        mDatas.add(user);
-                    }
-                    adapter.notifyDataSetChanged();
-                }
-            });
-}
-</code></pre><p>用Rx模式模糊查询</p>
-<pre><code>public void searchByName() {
-    String userName = user_name.getText().toString();
-    if(TextUtils.isEmpty(userName)){
-        return;
-    }
-    //方式一
-    //List&lt;User&gt; users = UserService.getInstance().getDao().queryBuilder().where(UserDao.Properties.Name.like(&quot;%&quot;+userName+&quot;%&quot;)).build().list();
-    //方式二
-    //List&lt;User&gt; users = UserService.getInstance().getDao().queryBuilder().where(new WhereCondition.PropertyCondition(UserDao.Properties.Name, &quot; LIKE ?&quot;, &quot;%&quot;+userName+&quot;%&quot;)).build().list();
-    //方式三
-    UserService.getInstance().getQueryBuilder().where(new WhereCondition.PropertyCondition(UserDao.Properties.Name, &quot; LIKE ?&quot;, &quot;%&quot;+userName+&quot;%&quot;)).rx().list()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Action1&lt;List&lt;User&gt;&gt;(){
-                @Override
-                public void call(List&lt;User&gt; users){
-                    mDatas.clear();
-                    for(int i = 0;i&lt;users.size();i++){
-                        User user = users.get(i);
-                        mDatas.add(user);
-                    }
-                    adapter.notifyDataSetChanged();
-                }
-            });
-}
-</code></pre><h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p><b>字段更新</b><br>这里借鉴了国外大牛写的一个工具类，代码如下：</p>
-<pre><code>public class MigrationHelper{
-
-    private static final String CONVERSION_CLASS_NOT_FOUND_EXCEPTION = &quot;MIGRATION HELPER - CLASS DOESN&apos;T MATCH WITH THE CURRENT PARAMETERS&quot;;
-    private static MigrationHelper instance;
-
-    public static MigrationHelper getInstance() {
-        if(instance == null) {
-            instance = new MigrationHelper();
-        }
-        return instance;
-    }
-
-    public void migrate(Database db, Class&lt;? extends AbstractDao&lt;?, ?&gt;&gt;... daoClasses) {
-        generateTempTables(db, daoClasses);
-        DaoMaster.dropAllTables(db, true);
-        DaoMaster.createAllTables(db, false);
-        restoreData(db, daoClasses);
-    }
-
-    private void generateTempTables(Database db, Class&lt;? extends AbstractDao&lt;?, ?&gt;&gt;... daoClasses) {
-        for(int i = 0; i &lt; daoClasses.length; i++) {
-            DaoConfig daoConfig = new DaoConfig(db, daoClasses[i]);
-
-            String divider = &quot;&quot;;
-            String tableName = daoConfig.tablename;
-            String tempTableName = daoConfig.tablename.concat(&quot;_TEMP&quot;);
-            ArrayList&lt;String&gt; properties = new ArrayList&lt;&gt;();
-
-            StringBuilder createTableStringBuilder = new StringBuilder();
-
-            createTableStringBuilder.append(&quot;CREATE TABLE &quot;).append(tempTableName).append(&quot; (&quot;);
-
-            for(int j = 0; j &lt; daoConfig.properties.length; j++) {
-                String columnName = daoConfig.properties[j].columnName;
-
-                if(getColumns(db, tableName).contains(columnName)) {
-                    properties.add(columnName);
-
-                    String type = null;
-
-                    try {
-                        type = getTypeByClass(daoConfig.properties[j].type);
-                    } catch (Exception exception) {
-                        exception.printStackTrace();
-                        //Crashlytics.logException(exception);
-                    }
-
-                    createTableStringBuilder.append(divider).append(columnName).append(&quot; &quot;).append(type);
-
-                    if(daoConfig.properties[j].primaryKey) {
-                        createTableStringBuilder.append(&quot; PRIMARY KEY&quot;);
-                    }
-
-                    divider = &quot;,&quot;;
-                }
-            }
-            createTableStringBuilder.append(&quot;);&quot;);
-
-            db.execSQL(createTableStringBuilder.toString());
-
-            StringBuilder insertTableStringBuilder = new StringBuilder();
-
-            insertTableStringBuilder.append(&quot;INSERT INTO &quot;).append(tempTableName).append(&quot; (&quot;);
-            insertTableStringBuilder.append(TextUtils.join(&quot;,&quot;,properties));
-            insertTableStringBuilder.append(&quot;) SELECT &quot;);
-            insertTableStringBuilder.append(TextUtils.join(&quot;,&quot;, properties));
-            insertTableStringBuilder.append(&quot; FROM &quot;).append(tableName).append(&quot;;&quot;);
-
-            db.execSQL(insertTableStringBuilder.toString());
-        }
-    }
-
-    private void restoreData(Database db, Class&lt;? extends AbstractDao&lt;?, ?&gt;&gt;... daoClasses) {
-        for(int i = 0; i &lt; daoClasses.length; i++) {
-            DaoConfig daoConfig = new DaoConfig(db, daoClasses[i]);
-
-            String tableName = daoConfig.tablename;
-            String tempTableName = daoConfig.tablename.concat(&quot;_TEMP&quot;);
-            ArrayList&lt;String&gt; properties = new ArrayList&lt;&gt;();
-
-            for (int j = 0; j &lt; daoConfig.properties.length; j++) {
-                String columnName = daoConfig.properties[j].columnName;
-
-                if(getColumns(db, tempTableName).contains(columnName)) {
-                    properties.add(columnName);
-                }
-            }
-
-            StringBuilder insertTableStringBuilder = new StringBuilder();
-
-            insertTableStringBuilder.append(&quot;INSERT INTO &quot;).append(tableName).append(&quot; (&quot;);
-            insertTableStringBuilder.append(TextUtils.join(&quot;,&quot;, properties));
-            insertTableStringBuilder.append(&quot;) SELECT &quot;);
-            insertTableStringBuilder.append(TextUtils.join(&quot;,&quot;, properties));
-            insertTableStringBuilder.append(&quot; FROM &quot;).append(tempTableName).append(&quot;;&quot;);
-
-            StringBuilder dropTableStringBuilder = new StringBuilder();
-
-            dropTableStringBuilder.append(&quot;DROP TABLE &quot;).append(tempTableName);
-
-            db.execSQL(insertTableStringBuilder.toString());
-            db.execSQL(dropTableStringBuilder.toString());
-        }
-    }
-
-    private String getTypeByClass(Class&lt;?&gt; type) throws Exception{
-        if(type.equals(String.class)) {
-            return &quot;TEXT&quot;;
-        }
-        if(type.equals(Long.class) || type.equals(Integer.class) || type.equals(long.class)) {
-            return &quot;INTEGER&quot;;
-        }
-        if(type.equals(Boolean.class)) {
-            return &quot;BOOLEAN&quot;;
-        }
-
-        Exception exception = new Exception(CONVERSION_CLASS_NOT_FOUND_EXCEPTION.concat(&quot; - Class: &quot;).concat(type.toString()));
-        //Crashlytics.logException(exception);
-        throw exception;
-    }
-
-    private static List&lt;String&gt; getColumns(Database db,String tableName) {
-        List&lt;String&gt; columns = new ArrayList&lt;&gt;();
-        Cursor cursor = null;
-        try {
-            cursor = db.rawQuery(&quot;SELECT * FROM &quot; + tableName + &quot; limit 1&quot;, null);
-            if (cursor != null) {
-                columns = new ArrayList&lt;&gt;(Arrays.asList(cursor.getColumnNames()));
-            }
-        } catch (Exception e) {
-            Log.v(tableName,e.getMessage(),e);
-            e.printStackTrace();
-        } finally {
-            if (cursor != null)
-                cursor.close();
-        }
-        return columns;
-    }
-}
-</code></pre><p>具体应用只需要在<code>OnlineOpenHelper</code>的<code>onUpgrade</code>方法中如下使用</p>
-<pre><code>switch(oldVersion){
-    //User表添加字段或删除字段更新
-    case 1: MigrationHelper.getInstance().migrate(db,UserDao.class);
-}
-</code></pre><p><b>新增数据表</b></p>
-<pre><code>@Entity
-public class Role{
-
-    @Id
-    private Long id;
-
-    @NotNull
-    private String roleName;
-}
-</code></pre><p>在OnlineOpenHelper的onUpgrade方法添加<code>RoleDao.createTable(db,false)</code>,如下：</p>
-<pre><code>switch(oldVersion){
-    //User表添加字段或删除字段更新
-    case 1: MigrationHelper.getInstance().migrate(db,UserDao.class);
-    //第二个参数true or false 是否需要检查是否存在该表
-    case 2: RoleDao.createTable(db,false);
-}
-</code></pre><p>到这里greenDao简单的操作处理都基本OK了！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">search</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//List&lt;User&gt; users = UserService.getInstance().getQueryBuilder().orderDesc(UserDao.Properties.Id).build().list();</span></div><div class="line">    UserService.getInstance().getQueryBuilder().orderDesc(UserDao.Properties.Id).rx().list()</div><div class="line">            .observeOn(AndroidSchedulers.mainThread())</div><div class="line">            .subscribe(<span class="keyword">new</span> Action1&lt;List&lt;User&gt;&gt;()&#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(List&lt;User&gt; users)</span></span>&#123;</div><div class="line">                    mDatas.clear();</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;users.size();i++)&#123;</div><div class="line">                        User user = users.get(i);</div><div class="line">                        mDatas.add(user);</div><div class="line">                    &#125;</div><div class="line">                    adapter.notifyDataSetChanged();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>用Rx模式模糊查询</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">searchByName</span><span class="params">()</span> </span>&#123;</div><div class="line">    String userName = user_name.getText().toString();</div><div class="line">    <span class="keyword">if</span>(TextUtils.isEmpty(userName))&#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//方式一</span></div><div class="line">    <span class="comment">//List&lt;User&gt; users = UserService.getInstance().getDao().queryBuilder().where(UserDao.Properties.Name.like("%"+userName+"%")).build().list();</span></div><div class="line">    <span class="comment">//方式二</span></div><div class="line">    <span class="comment">//List&lt;User&gt; users = UserService.getInstance().getDao().queryBuilder().where(new WhereCondition.PropertyCondition(UserDao.Properties.Name, " LIKE ?", "%"+userName+"%")).build().list();</span></div><div class="line">    <span class="comment">//方式三</span></div><div class="line">    UserService.getInstance().getQueryBuilder().where(<span class="keyword">new</span> WhereCondition.PropertyCondition(UserDao.Properties.Name, <span class="string">" LIKE ?"</span>, <span class="string">"%"</span>+userName+<span class="string">"%"</span>)).rx().list()</div><div class="line">            .observeOn(AndroidSchedulers.mainThread())</div><div class="line">            .subscribe(<span class="keyword">new</span> Action1&lt;List&lt;User&gt;&gt;()&#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(List&lt;User&gt; users)</span></span>&#123;</div><div class="line">                    mDatas.clear();</div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;users.size();i++)&#123;</div><div class="line">                        User user = users.get(i);</div><div class="line">                        mDatas.add(user);</div><div class="line">                    &#125;</div><div class="line">                    adapter.notifyDataSetChanged();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p><b>字段更新</b><br>这里借鉴了国外大牛写的一个工具类，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MigrationHelper</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String CONVERSION_CLASS_NOT_FOUND_EXCEPTION = <span class="string">"MIGRATION HELPER - CLASS DOESN'T MATCH WITH THE CURRENT PARAMETERS"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MigrationHelper instance;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MigrationHelper <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>) &#123;</div><div class="line">            instance = <span class="keyword">new</span> MigrationHelper();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">migrate</span><span class="params">(Database db, Class&lt;? extends AbstractDao&lt;?, ?&gt;&gt;... daoClasses)</span> </span>&#123;</div><div class="line">        generateTempTables(db, daoClasses);</div><div class="line">        DaoMaster.dropAllTables(db, <span class="keyword">true</span>);</div><div class="line">        DaoMaster.createAllTables(db, <span class="keyword">false</span>);</div><div class="line">        restoreData(db, daoClasses);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">generateTempTables</span><span class="params">(Database db, Class&lt;? extends AbstractDao&lt;?, ?&gt;&gt;... daoClasses)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; daoClasses.length; i++) &#123;</div><div class="line">            DaoConfig daoConfig = <span class="keyword">new</span> DaoConfig(db, daoClasses[i]);</div><div class="line"></div><div class="line">            String divider = <span class="string">""</span>;</div><div class="line">            String tableName = daoConfig.tablename;</div><div class="line">            String tempTableName = daoConfig.tablename.concat(<span class="string">"_TEMP"</span>);</div><div class="line">            ArrayList&lt;String&gt; properties = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">            StringBuilder createTableStringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">            createTableStringBuilder.append(<span class="string">"CREATE TABLE "</span>).append(tempTableName).append(<span class="string">" ("</span>);</div><div class="line"></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; daoConfig.properties.length; j++) &#123;</div><div class="line">                String columnName = daoConfig.properties[j].columnName;</div><div class="line"></div><div class="line">                <span class="keyword">if</span>(getColumns(db, tableName).contains(columnName)) &#123;</div><div class="line">                    properties.add(columnName);</div><div class="line"></div><div class="line">                    String type = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">                    <span class="keyword">try</span> &#123;</div><div class="line">                        type = getTypeByClass(daoConfig.properties[j].type);</div><div class="line">                    &#125; <span class="keyword">catch</span> (Exception exception) &#123;</div><div class="line">                        exception.printStackTrace();</div><div class="line">                        <span class="comment">//Crashlytics.logException(exception);</span></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    createTableStringBuilder.append(divider).append(columnName).append(<span class="string">" "</span>).append(type);</div><div class="line"></div><div class="line">                    <span class="keyword">if</span>(daoConfig.properties[j].primaryKey) &#123;</div><div class="line">                        createTableStringBuilder.append(<span class="string">" PRIMARY KEY"</span>);</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    divider = <span class="string">","</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            createTableStringBuilder.append(<span class="string">");"</span>);</div><div class="line"></div><div class="line">            db.execSQL(createTableStringBuilder.toString());</div><div class="line"></div><div class="line">            StringBuilder insertTableStringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">            insertTableStringBuilder.append(<span class="string">"INSERT INTO "</span>).append(tempTableName).append(<span class="string">" ("</span>);</div><div class="line">            insertTableStringBuilder.append(TextUtils.join(<span class="string">","</span>,properties));</div><div class="line">            insertTableStringBuilder.append(<span class="string">") SELECT "</span>);</div><div class="line">            insertTableStringBuilder.append(TextUtils.join(<span class="string">","</span>, properties));</div><div class="line">            insertTableStringBuilder.append(<span class="string">" FROM "</span>).append(tableName).append(<span class="string">";"</span>);</div><div class="line"></div><div class="line">            db.execSQL(insertTableStringBuilder.toString());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">restoreData</span><span class="params">(Database db, Class&lt;? extends AbstractDao&lt;?, ?&gt;&gt;... daoClasses)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; daoClasses.length; i++) &#123;</div><div class="line">            DaoConfig daoConfig = <span class="keyword">new</span> DaoConfig(db, daoClasses[i]);</div><div class="line"></div><div class="line">            String tableName = daoConfig.tablename;</div><div class="line">            String tempTableName = daoConfig.tablename.concat(<span class="string">"_TEMP"</span>);</div><div class="line">            ArrayList&lt;String&gt; properties = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; daoConfig.properties.length; j++) &#123;</div><div class="line">                String columnName = daoConfig.properties[j].columnName;</div><div class="line"></div><div class="line">                <span class="keyword">if</span>(getColumns(db, tempTableName).contains(columnName)) &#123;</div><div class="line">                    properties.add(columnName);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            StringBuilder insertTableStringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">            insertTableStringBuilder.append(<span class="string">"INSERT INTO "</span>).append(tableName).append(<span class="string">" ("</span>);</div><div class="line">            insertTableStringBuilder.append(TextUtils.join(<span class="string">","</span>, properties));</div><div class="line">            insertTableStringBuilder.append(<span class="string">") SELECT "</span>);</div><div class="line">            insertTableStringBuilder.append(TextUtils.join(<span class="string">","</span>, properties));</div><div class="line">            insertTableStringBuilder.append(<span class="string">" FROM "</span>).append(tempTableName).append(<span class="string">";"</span>);</div><div class="line"></div><div class="line">            StringBuilder dropTableStringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">            dropTableStringBuilder.append(<span class="string">"DROP TABLE "</span>).append(tempTableName);</div><div class="line"></div><div class="line">            db.execSQL(insertTableStringBuilder.toString());</div><div class="line">            db.execSQL(dropTableStringBuilder.toString());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getTypeByClass</span><span class="params">(Class&lt;?&gt; type)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">        <span class="keyword">if</span>(type.equals(String.class)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">"TEXT"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(type.equals(Long.class) || type.equals(Integer.class) || type.equals(<span class="keyword">long</span>.class)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">"INTEGER"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(type.equals(Boolean.class)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">"BOOLEAN"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Exception exception = <span class="keyword">new</span> Exception(CONVERSION_CLASS_NOT_FOUND_EXCEPTION.concat(<span class="string">" - Class: "</span>).concat(type.toString()));</div><div class="line">        <span class="comment">//Crashlytics.logException(exception);</span></div><div class="line">        <span class="keyword">throw</span> exception;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getColumns</span><span class="params">(Database db,String tableName)</span> </span>&#123;</div><div class="line">        List&lt;String&gt; columns = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        Cursor cursor = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            cursor = db.rawQuery(<span class="string">"SELECT * FROM "</span> + tableName + <span class="string">" limit 1"</span>, <span class="keyword">null</span>);</div><div class="line">            <span class="keyword">if</span> (cursor != <span class="keyword">null</span>) &#123;</div><div class="line">                columns = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(cursor.getColumnNames()));</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            Log.v(tableName,e.getMessage(),e);</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (cursor != <span class="keyword">null</span>)</div><div class="line">                cursor.close();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> columns;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>具体应用只需要在<code>OnlineOpenHelper</code>的<code>onUpgrade</code>方法中如下使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span>(oldVersion)&#123;</div><div class="line">    <span class="comment">//User表添加字段或删除字段更新</span></div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>: MigrationHelper.getInstance().migrate(db,UserDao.class);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><b>新增数据表</b></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Role</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Id</span></div><div class="line">    <span class="keyword">private</span> Long id;</div><div class="line">    </div><div class="line">    <span class="meta">@NotNull</span></div><div class="line">    <span class="keyword">private</span> String roleName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在OnlineOpenHelper的onUpgrade方法添加<code>RoleDao.createTable(db,false)</code>,如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span>(oldVersion)&#123;</div><div class="line">    <span class="comment">//User表添加字段或删除字段更新</span></div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>: MigrationHelper.getInstance().migrate(db,UserDao.class);</div><div class="line">    <span class="comment">//第二个参数true or false 是否需要检查是否存在该表</span></div><div class="line">    <span class="keyword">case</span> <span class="number">2</span>: RoleDao.createTable(db,<span class="keyword">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>到这里greenDao简单的操作处理都基本OK了！</p>
 <p><a href="https://github.com/h7870181/CommonFrame/tree/master/greendaolibrary" target="_blank" rel="external">github地址</a></p>
 <blockquote>
 <p>写在最后的话：很多事情都从小事做起，坚持不懈，你一定能够把它做好</p>
@@ -1087,7 +567,7 @@ public class Role{
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1109,7 +589,7 @@ public class Role{
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1182,7 +662,7 @@ public class Role{
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -1272,13 +752,6 @@ public class Role{
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
