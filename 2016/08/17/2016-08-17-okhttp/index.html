@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description">Soaic</h1>
       
   </div>
 
@@ -234,6 +234,26 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -284,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">你必须学会的okhttp3.0入门篇</h1>
+          <h2 class="post-title" itemprop="name headline">你必须学会的okhttp3.0入门篇</h2>
         
 
         <div class="post-meta">
@@ -382,18 +402,18 @@
 <p>下面我们就开始学习怎么使用okhttp吧</p>
 <h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>github地址：<a href="https://github.com/square/okhttp" target="_blank" rel="external">https://github.com/square/okhttp</a></p>
 <p>在builde.gradle里面添加上</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.okhttp3:okhttp:3.4.1'</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.okhttp3:okhttp:3.4.1'</span></div></pre></td></tr></table></figure>
 <p>在AndroidManifest.xml添加所需权限</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><ul>
 <li>get异步请求</li>
 </ul>
 <p>通过get请求获取指定URL网页请求，这里要注意的是Android4.0以后需要在非主线程里使用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="comment">//创建一个Request</span></div><div class="line">        Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">                .url(<span class="string">"http://www.jianshu.com/"</span>)</div><div class="line">                .get()</div><div class="line">                .build();</div><div class="line">        <span class="comment">//发起异步请求，并加入回调</span></div><div class="line">        client.newCall(request).enqueue(<span class="keyword">new</span> Callback()</div><div class="line">        &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call,IOException e)</span></span>&#123;</div><div class="line">            	<span class="comment">//请求失败回调</span></div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call,Response response)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">            	<span class="comment">//请求成功回调</span></div><div class="line">                Log.e(<span class="string">"okHttp"</span>,<span class="string">"get="</span>+response.body().string());</div><div class="line">            &#125;</div><div class="line">        &#125;)；</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="comment">//创建一个Request</span></div><div class="line">        Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">                .url(<span class="string">"http://www.jianshu.com/"</span>)</div><div class="line">                .get()</div><div class="line">                .build();</div><div class="line">        <span class="comment">//发起异步请求，并加入回调</span></div><div class="line">        client.newCall(request).enqueue(<span class="keyword">new</span> Callback()</div><div class="line">        &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call,IOException e)</span></span>&#123;</div><div class="line">            	<span class="comment">//请求失败回调</span></div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call,Response response)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">            	<span class="comment">//请求成功回调</span></div><div class="line">                Log.e(<span class="string">"okHttp"</span>,<span class="string">"get="</span>+response.body().string());</div><div class="line">            &#125;</div><div class="line">        &#125;)；</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>post异步请求</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">()</span></span>&#123;</div><div class="line">       <span class="comment">//创建Form表单对象，可以add多个键值队</span></div><div class="line">       FormBody formBody = <span class="keyword">new</span> FormBody.Builder()</div><div class="line">               .add(<span class="string">"param"</span>,<span class="string">"value"</span>)</div><div class="line">               .add(<span class="string">"param"</span>,<span class="string">"value"</span>)</div><div class="line">               .build();</div><div class="line">       <span class="comment">//创建一个Request</span></div><div class="line">       Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">               .url(<span class="string">"http://www.jianshu.com/"</span>)</div><div class="line">               .post(formBody)</div><div class="line">               .build();</div><div class="line">       <span class="comment">//发起异步请求，并加入回调</span></div><div class="line">       client.newCall(request).enqueue(<span class="keyword">new</span> Callback()</div><div class="line">       &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call,IOException e)</span></span>&#123;</div><div class="line">           &#125;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call,Response response)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">               Log.e(<span class="string">"okHttp"</span>,<span class="string">"post="</span>+response.body().string());</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">()</span></span>&#123;</div><div class="line">       <span class="comment">//创建Form表单对象，可以add多个键值队</span></div><div class="line">       FormBody formBody = <span class="keyword">new</span> FormBody.Builder()</div><div class="line">               .add(<span class="string">"param"</span>,<span class="string">"value"</span>)</div><div class="line">               .add(<span class="string">"param"</span>,<span class="string">"value"</span>)</div><div class="line">               .build();</div><div class="line">       <span class="comment">//创建一个Request</span></div><div class="line">       Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">               .url(<span class="string">"http://www.jianshu.com/"</span>)</div><div class="line">               .post(formBody)</div><div class="line">               .build();</div><div class="line">       <span class="comment">//发起异步请求，并加入回调</span></div><div class="line">       client.newCall(request).enqueue(<span class="keyword">new</span> Callback()</div><div class="line">       &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call,IOException e)</span></span>&#123;</div><div class="line">           &#125;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call,Response response)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">               Log.e(<span class="string">"okHttp"</span>,<span class="string">"post="</span>+response.body().string());</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>同步请求</li>
 </ul>
@@ -402,11 +422,11 @@ client.newCall(request).enqueue(new Callback())</code><br>改成<br><code>client
 <ul>
 <li>文件上传与多文件上传</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">upload</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//多个文件集合</span></div><div class="line">    List&lt;File&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    MultipartBody.Builder builder = <span class="keyword">new</span> MultipartBody.Builder();</div><div class="line">    <span class="comment">//设置为表单类型</span></div><div class="line">    builder.setType(MultipartBody.FORM);</div><div class="line">    <span class="comment">//添加表单键值</span></div><div class="line">    builder.addFormDataPart(<span class="string">"param"</span>,<span class="string">"value"</span>);</div><div class="line">    <span class="keyword">for</span> (File file : list) &#123;</div><div class="line">        <span class="comment">//添加多个文件</span></div><div class="line">        RequestBody fileBody = RequestBody.create(MediaType.parse(<span class="string">"application/octet-stream"</span>), file);</div><div class="line">        builder.addFormDataPart(<span class="string">"files"</span>, file.getName(), fileBody);</div><div class="line">    &#125;</div><div class="line">    Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">            .url(<span class="string">"http://192.168.1.8/upload/UploadServlet"</span>)</div><div class="line">            .post(builder.build())</div><div class="line">            .build();</div><div class="line">    <span class="comment">//发起异步请求，并加入回调</span></div><div class="line">    mOkHttpClient.newCall(request).enqueue(<span class="keyword">new</span> Callback()</div><div class="line">    &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call,IOException e)</span></span>&#123;</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call,Response response)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">            Log.e(<span class="string">"okHttp"</span>,<span class="string">"updLoad="</span>+response.body().string());</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">upload</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//多个文件集合</span></div><div class="line">    List&lt;File&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    MultipartBody.Builder builder = <span class="keyword">new</span> MultipartBody.Builder();</div><div class="line">    <span class="comment">//设置为表单类型</span></div><div class="line">    builder.setType(MultipartBody.FORM);</div><div class="line">    <span class="comment">//添加表单键值</span></div><div class="line">    builder.addFormDataPart(<span class="string">"param"</span>,<span class="string">"value"</span>);</div><div class="line">    <span class="keyword">for</span> (File file : list) &#123;</div><div class="line">        <span class="comment">//添加多个文件</span></div><div class="line">        RequestBody fileBody = RequestBody.create(MediaType.parse(<span class="string">"application/octet-stream"</span>), file);</div><div class="line">        builder.addFormDataPart(<span class="string">"files"</span>, file.getName(), fileBody);</div><div class="line">    &#125;</div><div class="line">    Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">            .url(<span class="string">"http://192.168.1.8/upload/UploadServlet"</span>)</div><div class="line">            .post(builder.build())</div><div class="line">            .build();</div><div class="line">    <span class="comment">//发起异步请求，并加入回调</span></div><div class="line">    mOkHttpClient.newCall(request).enqueue(<span class="keyword">new</span> Callback()</div><div class="line">    &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call,IOException e)</span></span>&#123;</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call,Response response)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">            Log.e(<span class="string">"okHttp"</span>,<span class="string">"updLoad="</span>+response.body().string());</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>超时设置,整个程序应使用这一个mOkHttpClient对象</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setTimeout</span><span class="params">()</span></span>&#123;</div><div class="line">    mOkHttpClient.newBuilder()</div><div class="line">            .connectTimeout(<span class="number">10</span>, TimeUnit.SECONDS)<span class="comment">//10秒连接超时</span></div><div class="line">            .writeTimeout(<span class="number">10</span>, TimeUnit.SECONDS)<span class="comment">//10m秒写入超时</span></div><div class="line">            .readTimeout(<span class="number">10</span>, TimeUnit.SECONDS)<span class="comment">//10秒读取超时</span></div><div class="line">            .build();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setTimeout</span><span class="params">()</span></span>&#123;</div><div class="line">    mOkHttpClient.newBuilder()</div><div class="line">            .connectTimeout(<span class="number">10</span>, TimeUnit.SECONDS)<span class="comment">//10秒连接超时</span></div><div class="line">            .writeTimeout(<span class="number">10</span>, TimeUnit.SECONDS)<span class="comment">//10m秒写入超时</span></div><div class="line">            .readTimeout(<span class="number">10</span>, TimeUnit.SECONDS)<span class="comment">//10秒读取超时</span></div><div class="line">            .build();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>文件下载<br>其实很简单，只需要利用get同步或异步请求，然后通过<br><code>client.newCall(request).execute().body().byteStream()</code><br>获取InputStream输入流，写文件操作即可实现文件下载。</li>
 </ul>
@@ -452,8 +472,8 @@ client.newCall(request).enqueue(new Callback())</code><br>改成<br><code>client
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/05/2016-09-05-Retrofit/" rel="prev" title="你必须了解的网络框架Retrofit2.0">
-                你必须了解的网络框架Retrofit2.0 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/05/2016-09-06-mvp/" rel="prev" title="你应该学会的设计模式MVP">
+                你应该学会的设计模式MVP <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,8 +543,8 @@ client.newCall(request).enqueue(new Callback())</code><br>改成<br><code>client
                alt="Soaic" />
           <p class="site-author-name" itemprop="name">Soaic</p>
            
-              <p class="site-description motion-element" itemprop="description">人生就是在不断的尝试和学习</p>
-          
+              <p class="site-description motion-element" itemprop="description">Welcome!</p>
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -671,8 +691,6 @@ client.newCall(request).enqueue(new Callback())</code><br>改成<br><code>client
   
 
 
-  
-
 
 
 
@@ -700,9 +718,6 @@ client.newCall(request).enqueue(new Callback())</code><br>改成<br><code>client
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

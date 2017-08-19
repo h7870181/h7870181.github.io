@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description">Soaic</h1>
       
   </div>
 
@@ -234,6 +234,26 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -284,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo学习和使用</h1>
+          <h2 class="post-title" itemprop="name headline">Hexo学习和使用</h2>
         
 
         <div class="post-meta">
@@ -352,20 +372,20 @@
 <a id="more"></a>
 <p><code>npm install hexo-cli -g</code></p>
 <p>初始化博客框架</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init blog</div><div class="line">cd blog</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">hexo init blog</div><div class="line">cd blog</div><div class="line">npm install</div></pre></td></tr></table></figure>
 <p>运行Hexo</p>
 <p><code>hexo server</code></p>
 <h3 id="下载设置NexT主题"><a href="#下载设置NexT主题" class="headerlink" title="下载设置NexT主题"></a>下载设置NexT主题</h3><p>在终端窗口下，定位到 Hexo 站点目录下。使用 Git checkout 代码：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
 <p>启用NexT主题 找到配置文件_config.yml 修改theme</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure>
 <p>然后再运行hexo 命令hexo s或hexo server或hexo s –debug都可以 当命令行输出中提示出：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
 <p>此时即可使用浏览器访问 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>，检查站点是否正确运行。</p>
 <h3 id="Next主题设定"><a href="#Next主题设定" class="headerlink" title="Next主题设定"></a>Next主题设定</h3><p>选择Scheme外观</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#scheme: Muse</div><div class="line">#scheme: Mist</div><div class="line">scheme: Pisces</div><div class="line">#scheme: Gemini</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">#scheme: Muse</div><div class="line">#scheme: Mist</div><div class="line">scheme: Pisces</div><div class="line">#scheme: Gemini</div></pre></td></tr></table></figure>
 <p>设置语言</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">language: zh-Hans</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">language: zh-Hans</div></pre></td></tr></table></figure>
 <p>目前 NexT 支持的语言如以下表格所示：</p>
 <table>
 <thead>
@@ -430,23 +450,23 @@
 </table>
 <p>设置头像 </p>
 <p>可以放置完整互联网URI也可以放置站内主题<code>source/images/</code>目录下的图片</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: <span class="regexp">/images/</span>avatar.png</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">avatar: <span class="regexp">/images/</span>avatar.png</div></pre></td></tr></table></figure>
 <h3 id="页面添加"><a href="#页面添加" class="headerlink" title="页面添加"></a>页面添加</h3><p>使用如下命令添加文章页面</p>
 <p><code>hexo new post 标题名</code></p>
 <p>使用如下命令添加「标签」页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">hexo new page tags</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">hexo new page tags</div></pre></td></tr></table></figure>
 <p>设置该页面为标签页</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: 标签</div><div class="line">date: <span class="number">2014</span><span class="number">-12</span><span class="number">-22</span> <span class="number">12</span>:<span class="number">39</span>:<span class="number">04</span></div><div class="line">type: <span class="string">"tags"</span></div><div class="line">---</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">title: 标签</div><div class="line">date: <span class="number">2014</span><span class="number">-12</span><span class="number">-22</span> <span class="number">12</span>:<span class="number">39</span>:<span class="number">04</span></div><div class="line">type: <span class="string">"tags"</span></div><div class="line">---</div></pre></td></tr></table></figure>
 <p>添加文章标签 下面例子将该文章添加为Test1和Test2两个标签</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">title: 标签测试文章</div><div class="line">tags:</div><div class="line">  - Test1</div><div class="line">  - Test2</div><div class="line">---</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">title: 标签测试文章</div><div class="line">tags:</div><div class="line">  - Test1</div><div class="line">  - Test2</div><div class="line">---</div></pre></td></tr></table></figure>
 <p>使用如下命令添加「分类」页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">hexo new page categories</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">cd your-hexo-site</div><div class="line">hexo new page categories</div></pre></td></tr></table></figure>
 <p>设置该页面为分类页</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: 分类</div><div class="line">date: <span class="number">2014</span><span class="number">-12</span><span class="number">-22</span> <span class="number">12</span>:<span class="number">39</span>:<span class="number">04</span></div><div class="line">type: <span class="string">"categories"</span></div><div class="line">---</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">title: 分类</div><div class="line">date: <span class="number">2014</span><span class="number">-12</span><span class="number">-22</span> <span class="number">12</span>:<span class="number">39</span>:<span class="number">04</span></div><div class="line">type: <span class="string">"categories"</span></div><div class="line">---</div></pre></td></tr></table></figure>
 <p>设置文章为分类 下面例子将该文章设置为Testing分类</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">title: 分类测试文章</div><div class="line">categories: Testing</div><div class="line">---</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">title: 分类测试文章</div><div class="line">categories: Testing</div><div class="line">---</div></pre></td></tr></table></figure>
 <h3 id="添加阅读次数统计"><a href="#添加阅读次数统计" class="headerlink" title="添加阅读次数统计"></a>添加阅读次数统计</h3><p>利用LeanCloud第三方服务 并在NexT主题的_config.yml文件中修改为</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">leancloud_visitors:</div><div class="line">  enable: <span class="literal">true</span></div><div class="line">  app_id: joaeuuc4hsqudUUwx4gIvGF6-gzGzoHsz</div><div class="line">  app_key: E9UJsJpw1omCHuS22PdSpKoh</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">leancloud_visitors:</div><div class="line">  enable: <span class="literal">true</span></div><div class="line">  app_id: joaeuuc4hsqudUUwx4gIvGF6-gzGzoHsz</div><div class="line">  app_key: E9UJsJpw1omCHuS22PdSpKoh</div></pre></td></tr></table></figure>
 <p>具体教程请查看 <a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a> </p>
 
       
@@ -559,8 +579,8 @@
                alt="Soaic" />
           <p class="site-author-name" itemprop="name">Soaic</p>
            
-              <p class="site-description motion-element" itemprop="description">人生就是在不断的尝试和学习</p>
-          
+              <p class="site-description motion-element" itemprop="description">Welcome!</p>
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -707,8 +727,6 @@
   
 
 
-  
-
 
 
 
@@ -736,9 +754,6 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

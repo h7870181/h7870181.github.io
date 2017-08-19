@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description">Soaic</h1>
       
   </div>
 
@@ -234,6 +234,26 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -284,9 +304,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/18/小程序接入LeanCloud学习笔记/" itemprop="url">小程序接入LeanCloud学习笔记</a></h1>
+                <a class="post-title-link" href="/2017/08/18/小程序接入LeanCloud学习笔记/" itemprop="url">小程序接入LeanCloud学习笔记</a></h2>
         
 
         <div class="post-meta">
@@ -353,7 +373,7 @@
 <li>下载 <a href="https://unpkg.com/leancloud-storage@%5E3.0.0-alpha/dist/av-weapp-min.js" target="_blank" rel="external">av-weapp-min.js</a>，移动到 libs 目录下。</li>
 <li>在app.js中初始化</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> AV = <span class="built_in">require</span>(<span class="string">'libs/av-weapp-min.js'</span>);</div><div class="line">AV.init(&#123;</div><div class="line">    appId: <span class="string">'nSNhFcJCeysT9vRXgfNvtbQF-gzGzoHsz'</span>,</div><div class="line">    appKey: <span class="string">'aegQNi8pntiOE4R2z0e5B84D'</span>,</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(AV);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> AV = <span class="built_in">require</span>(<span class="string">'libs/av-weapp-min.js'</span>);</div><div class="line">AV.init(&#123;</div><div class="line">    appId: <span class="string">'nSNhFcJCeysT9vRXgfNvtbQF-gzGzoHsz'</span>,</div><div class="line">    appKey: <span class="string">'aegQNi8pntiOE4R2z0e5B84D'</span>,</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(AV);</div></pre></td></tr></table></figure>
 <p>appId和appKey是LeanCloud里设置下应用Key对应的AppId和AppKey<br>打印AV无异常则环境配置OK</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -425,9 +445,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/11/小程序开发技巧/" itemprop="url">小程序开发技巧</a></h1>
+                <a class="post-title-link" href="/2017/08/11/小程序开发技巧/" itemprop="url">小程序开发技巧</a></h2>
         
 
         <div class="post-meta">
@@ -494,11 +514,11 @@
 <h3 id="CSS相关"><a href="#CSS相关" class="headerlink" title="CSS相关"></a>CSS相关</h3><blockquote>
 <p>水平布局</p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex; </div><div class="line"><span class="attribute">flex-direction</span>: row;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex; </div><div class="line"><span class="attribute">flex-direction</span>: row;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>垂直布局</p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex;</div><div class="line"><span class="attribute">flex-direction</span>: column;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>: flex;</div><div class="line"><span class="attribute">flex-direction</span>: column;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/11/小程序开发技巧/#more" rel="contents">
@@ -569,9 +589,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/10/Hexo学习和使用/" itemprop="url">Hexo学习和使用</a></h1>
+                <a class="post-title-link" href="/2017/08/10/Hexo学习和使用/" itemprop="url">Hexo学习和使用</a></h2>
         
 
         <div class="post-meta">
@@ -707,9 +727,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/13/2016-12-13-greendao/" itemprop="url">你必须了解的ORM框架GreenDao</a></h1>
+                <a class="post-title-link" href="/2016/12/13/2016-12-13-greendao/" itemprop="url">你必须了解的ORM框架GreenDao</a></h2>
         
 
         <div class="post-meta">
@@ -872,9 +892,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/09/23/2016-09-23-rxjava/" itemprop="url">带大家进入RxJava的世界</a></h1>
+                <a class="post-title-link" href="/2016/09/23/2016-09-23-rxjava/" itemprop="url">带大家进入RxJava的世界</a></h2>
         
 
         <div class="post-meta">
@@ -1044,8 +1064,8 @@
                alt="Soaic" />
           <p class="site-author-name" itemprop="name">Soaic</p>
            
-              <p class="site-description motion-element" itemprop="description">人生就是在不断的尝试和学习</p>
-          
+              <p class="site-description motion-element" itemprop="description">Welcome!</p>
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -1176,8 +1196,6 @@
   
 
 
-  
-
 
 
 
@@ -1205,9 +1223,6 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

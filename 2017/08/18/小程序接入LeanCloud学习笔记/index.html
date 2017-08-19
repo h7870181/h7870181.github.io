@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="学习资料小程序LeanCloud文档： https://leancloud.cn/docs/weapp.htmlLeanCloud数据存储JS文档： https://leancloud.cn/docs/leanstorage_guide-js.html 配置环境 下载 av-weapp-min.js，移动到 libs 目录下。 在app.js中初始化  123456const AV = requi">
+<meta name="description" content="学习资料小程序LeanCloud文档： https://leancloud.cn/docs/weapp.htmlLeanCloud数据存储JS文档： https://leancloud.cn/docs/leanstorage_guide-js.html 配置环境 下载 av-weapp-min.js，移动到 libs 目录下。 在app.js中初始化  const AV = require(&apos;li">
 <meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序接入LeanCloud学习笔记">
 <meta property="og:url" content="http://yoursite.com/2017/08/18/小程序接入LeanCloud学习笔记/index.html">
 <meta property="og:site_name" content="Soaic&#39;s Blog">
-<meta property="og:description" content="学习资料小程序LeanCloud文档： https://leancloud.cn/docs/weapp.htmlLeanCloud数据存储JS文档： https://leancloud.cn/docs/leanstorage_guide-js.html 配置环境 下载 av-weapp-min.js，移动到 libs 目录下。 在app.js中初始化  123456const AV = requi">
+<meta property="og:description" content="学习资料小程序LeanCloud文档： https://leancloud.cn/docs/weapp.htmlLeanCloud数据存储JS文档： https://leancloud.cn/docs/leanstorage_guide-js.html 配置环境 下载 av-weapp-min.js，移动到 libs 目录下。 在app.js中初始化  const AV = require(&apos;li">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-17T17:13:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序接入LeanCloud学习笔记">
-<meta name="twitter:description" content="学习资料小程序LeanCloud文档： https://leancloud.cn/docs/weapp.htmlLeanCloud数据存储JS文档： https://leancloud.cn/docs/leanstorage_guide-js.html 配置环境 下载 av-weapp-min.js，移动到 libs 目录下。 在app.js中初始化  123456const AV = requi">
+<meta name="twitter:description" content="学习资料小程序LeanCloud文档： https://leancloud.cn/docs/weapp.htmlLeanCloud数据存储JS文档： https://leancloud.cn/docs/leanstorage_guide-js.html 配置环境 下载 av-weapp-min.js，移动到 libs 目录下。 在app.js中初始化  const AV = require(&apos;li">
 
 
 
@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description">Soaic</h1>
       
   </div>
 
@@ -234,6 +234,26 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -284,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">小程序接入LeanCloud学习笔记</h1>
+          <h2 class="post-title" itemprop="name headline">小程序接入LeanCloud学习笔记</h2>
         
 
         <div class="post-meta">
@@ -350,30 +370,30 @@
 <li>下载 <a href="https://unpkg.com/leancloud-storage@%5E3.0.0-alpha/dist/av-weapp-min.js" target="_blank" rel="external">av-weapp-min.js</a>，移动到 libs 目录下。</li>
 <li>在app.js中初始化</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> AV = <span class="built_in">require</span>(<span class="string">'libs/av-weapp-min.js'</span>);</div><div class="line">AV.init(&#123;</div><div class="line">    appId: <span class="string">'nSNhFcJCeysT9vRXgfNvtbQF-gzGzoHsz'</span>,</div><div class="line">    appKey: <span class="string">'aegQNi8pntiOE4R2z0e5B84D'</span>,</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(AV);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> AV = <span class="built_in">require</span>(<span class="string">'libs/av-weapp-min.js'</span>);</div><div class="line">AV.init(&#123;</div><div class="line">    appId: <span class="string">'nSNhFcJCeysT9vRXgfNvtbQF-gzGzoHsz'</span>,</div><div class="line">    appKey: <span class="string">'aegQNi8pntiOE4R2z0e5B84D'</span>,</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(AV);</div></pre></td></tr></table></figure>
 <p>appId和appKey是LeanCloud里设置下应用Key对应的AppId和AppKey<br>打印AV无异常则环境配置OK</p>
 <a id="more"></a>
 <h3 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h3><p>在需要使用的page里添加</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> AV = <span class="built_in">require</span>(<span class="string">'../../libs/av-weapp-min.js'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> AV = <span class="built_in">require</span>(<span class="string">'../../libs/av-weapp-min.js'</span>);</div></pre></td></tr></table></figure>
 <ul>
 <li>增</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 声明一个 Todo 类型</span></div><div class="line"><span class="keyword">var</span> Todo = AV.Object.extend(<span class="string">'Todo'</span>);</div><div class="line"><span class="comment">// 新建一个 Todo 对象</span></div><div class="line"><span class="keyword">var</span> todo = <span class="keyword">new</span> Todo();</div><div class="line">todo.set(<span class="string">'title'</span>, <span class="string">'工程师周会2'</span>);</div><div class="line">todo.set(<span class="string">'content'</span>, <span class="string">'每周工程师会议，周一下午2点3'</span>);</div><div class="line">todo.save().then(<span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</div><div class="line"><span class="comment">// 成功保存之后，执行其他逻辑.</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'New object created with objectId: '</span> + todo.id);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line"><span class="comment">// 异常处理</span></div><div class="line"><span class="built_in">console</span>.error(<span class="string">'Failed to create new object, with error message: '</span> + error.message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 声明一个 Todo 类型</span></div><div class="line"><span class="keyword">var</span> Todo = AV.Object.extend(<span class="string">'Todo'</span>);</div><div class="line"><span class="comment">// 新建一个 Todo 对象</span></div><div class="line"><span class="keyword">var</span> todo = <span class="keyword">new</span> Todo();</div><div class="line">todo.set(<span class="string">'title'</span>, <span class="string">'工程师周会2'</span>);</div><div class="line">todo.set(<span class="string">'content'</span>, <span class="string">'每周工程师会议，周一下午2点3'</span>);</div><div class="line">todo.save().then(<span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</div><div class="line"><span class="comment">// 成功保存之后，执行其他逻辑.</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'New object created with objectId: '</span> + todo.id);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line"><span class="comment">// 异常处理</span></div><div class="line"><span class="built_in">console</span>.error(<span class="string">'Failed to create new object, with error message: '</span> + error.message);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <ul>
 <li>删</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> todo = AV.Object.createWithoutData(<span class="string">'Todo'</span>, <span class="string">'5993ff06a22b9d0057223487'</span>);</div><div class="line">todo.destroy().then(<span class="function"><span class="keyword">function</span> (<span class="params">success</span>) </span>&#123;</div><div class="line">    <span class="comment">// 删除成功</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="comment">// 删除失败</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> todo = AV.Object.createWithoutData(<span class="string">'Todo'</span>, <span class="string">'5993ff06a22b9d0057223487'</span>);</div><div class="line">todo.destroy().then(<span class="function"><span class="keyword">function</span> (<span class="params">success</span>) </span>&#123;</div><div class="line">    <span class="comment">// 删除成功</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="comment">// 删除失败</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <ul>
 <li>改  </li>
 </ul>
 <p>第一种方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一个参数是 className，第二个参数是 objectId</span></div><div class="line"><span class="keyword">var</span> todo = AV.Object.createWithoutData(<span class="string">'Todo'</span>, <span class="string">'5993ff06a22b9d0057223487'</span>);</div><div class="line"><span class="comment">// 修改属性</span></div><div class="line">todo.set(<span class="string">'content'</span>, <span class="string">'每周工程师会议，本周改为周三下午3点半。'</span>);</div><div class="line"><span class="comment">// 保存到云端</span></div><div class="line">todo.save();</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 第一个参数是 className，第二个参数是 objectId</span></div><div class="line"><span class="keyword">var</span> todo = AV.Object.createWithoutData(<span class="string">'Todo'</span>, <span class="string">'5993ff06a22b9d0057223487'</span>);</div><div class="line"><span class="comment">// 修改属性</span></div><div class="line">todo.set(<span class="string">'content'</span>, <span class="string">'每周工程师会议，本周改为周三下午3点半。'</span>);</div><div class="line"><span class="comment">// 保存到云端</span></div><div class="line">todo.save();</div></pre></td></tr></table></figure>
 <p>第二种方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 执行 CQL 语句实现更新一个 TodoFolder 对象</span></div><div class="line">AV.Query.doCloudQuery(<span class="string">'update TodoFolder set name="家庭" where objectId="558e20cbe4b060308e3eb36c"'</span>)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="comment">// data 中的 results 是本次查询返回的结果，AV.Object 实例列表</span></div><div class="line">    <span class="keyword">var</span> results = data.results;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="comment">// 异常处理</span></div><div class="line">    <span class="built_in">console</span>.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 执行 CQL 语句实现更新一个 TodoFolder 对象</span></div><div class="line">AV.Query.doCloudQuery(<span class="string">'update TodoFolder set name="家庭" where objectId="558e20cbe4b060308e3eb36c"'</span>)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="comment">// data 中的 results 是本次查询返回的结果，AV.Object 实例列表</span></div><div class="line">    <span class="keyword">var</span> results = data.results;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="comment">// 异常处理</span></div><div class="line">    <span class="built_in">console</span>.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <ul>
 <li>查</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> query = <span class="keyword">new</span> AV.Query(<span class="string">'Todo'</span>);</div><div class="line">query.find().then(<span class="function"><span class="keyword">function</span> (<span class="params">todos</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; todos.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> todo = todos[i];</div><div class="line">        <span class="comment">// 并不需要网络访问</span></div><div class="line">        <span class="keyword">var</span> id = todo.get(<span class="string">'objectId'</span>);</div><div class="line">        <span class="keyword">var</span> content = todo.get(<span class="string">'content'</span>);</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"id="</span> + id);</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"content="</span> + content);</div><div class="line">    &#125;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> query = <span class="keyword">new</span> AV.Query(<span class="string">'Todo'</span>);</div><div class="line">query.find().then(<span class="function"><span class="keyword">function</span> (<span class="params">todos</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; todos.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> todo = todos[i];</div><div class="line">        <span class="comment">// 并不需要网络访问</span></div><div class="line">        <span class="keyword">var</span> id = todo.get(<span class="string">'objectId'</span>);</div><div class="line">        <span class="keyword">var</span> content = todo.get(<span class="string">'content'</span>);</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"id="</span> + id);</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"content="</span> + content);</div><div class="line">    &#125;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -480,8 +500,8 @@
                alt="Soaic" />
           <p class="site-author-name" itemprop="name">Soaic</p>
            
-              <p class="site-description motion-element" itemprop="description">人生就是在不断的尝试和学习</p>
-          
+              <p class="site-description motion-element" itemprop="description">Welcome!</p>
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -628,8 +648,6 @@
   
 
 
-  
-
 
 
 
@@ -657,9 +675,6 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
