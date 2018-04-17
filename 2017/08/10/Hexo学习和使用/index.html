@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Soaic&#39;s Blog">
 <meta property="og:description" content="相关资料Hexo官网： https://hexo.io/ NexT官网： http://theme-next.iissnan.com/ Node下载： http://nodejs.cn/download/ 安装Hexo安装hexo，如果没有安装Node，需要先安装Node，否则npm命令会提示用不了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-17T18:04:56.000Z">
+<meta property="og:updated_time" content="2018-04-17T14:15:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo学习和使用">
 <meta name="twitter:description" content="相关资料Hexo官网： https://hexo.io/ NexT官网： http://theme-next.iissnan.com/ Node下载： http://nodejs.cn/download/ 安装Hexo安装hexo，如果没有安装Node，需要先安装Node，否则npm命令会提示用不了">
@@ -382,6 +382,8 @@
 <p>然后再运行hexo 命令hexo s或hexo server或hexo s –debug都可以 当命令行输出中提示出：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
 <p>此时即可使用浏览器访问 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>，检查站点是否正确运行。</p>
+<p>最后部署到github上去，在_config.yml配置文件中添加如下代码，soaic为github用户名，<code>用户名.github.io</code>为Repository名，然后在github上创建<code>用户名.github.io</code>仓库，最后执行命令部署：<code>hexo d -g</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/soaic/soaic.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 <h3 id="Next主题设定"><a href="#Next主题设定" class="headerlink" title="Next主题设定"></a>Next主题设定</h3><p>选择Scheme外观</p>
 <figure class="highlight"><table><tr><td class="code"><pre><div class="line">#scheme: Muse</div><div class="line">#scheme: Mist</div><div class="line">scheme: Pisces</div><div class="line">#scheme: Gemini</div></pre></td></tr></table></figure>
 <p>设置语言</p>
